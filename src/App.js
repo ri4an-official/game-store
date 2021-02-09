@@ -19,7 +19,10 @@ export const App = () => {
             <div className="app-content">
                 <Switch>
                     <Route exact path="/" component={Games} />
-                    <Route path="/basket" component={withRedirect(Basket)} />
+                    <Route
+                        path="/basket"
+                        component={withRedirect(Basket)}
+                    />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route component={NotFound} />
