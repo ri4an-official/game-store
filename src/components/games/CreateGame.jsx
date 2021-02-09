@@ -13,6 +13,7 @@ export const CreateGame = () => {
     const dispatch = useDispatch();
     return (
         <>
+            <h1>Add game</h1>
             <AddGameForm
                 onSubmit={({ title, price }) =>
                     dispatch(

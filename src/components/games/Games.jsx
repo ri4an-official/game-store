@@ -5,15 +5,33 @@ import { Link } from "react-router-dom";
 import { GameDetails } from "./GameDetails";
 
 export const Games = () => {
-    const games = useSelector((state) => state.gamesStore.games,);
+    const games = useSelector((state) => state.gamesStore.games);
     const [game, setGame] = useState({});
     const [id, setId] = useState(0);
     useEffect(() => setGame(games.filter((g) => g.id === id)[0]), [id]);
+    // useEffect(
+    //     () =>
+    //         [...Array(100).keys()]
+    //             .map((i) => i + 1)
+    //             .forEach((i) =>
+    //                 console.log(
+    //                     (i % 3 === 0 ? "Fizz" : "") +
+    //                         (i % 5 === 0 ? "Buzz" : "") || i
+    //                 )
+    //             ),
+    //     []
+    // );
     return (
         <>
-            <Link className="btn btn-primary" to="/create-game">
-                Add Game
-            </Link>
+            <div>
+                <Link
+                    className="btn btn-primary noblock right"
+                    to="/create-game"
+                >
+                    Add Game
+                </Link>
+                <h1 className="noblock">Games</h1>
+            </div><br/>
             <div className="games">
                 <div className="block-left">
                     {games.map((g) => (
