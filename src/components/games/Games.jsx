@@ -26,7 +26,7 @@ export const Games = () => {
             <div>
                 <Link
                     className="btn btn-primary noblock right"
-                    to="/create-game"
+                    to={`${process.env.PUBLIC_URL}/create-game`}
                 >
                     Add Game
                 </Link>

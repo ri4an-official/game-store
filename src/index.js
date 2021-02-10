@@ -4,19 +4,19 @@ import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import store from "./redux/redux-reducer";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <React.StrictMode>
-            <Provider store={store}>
+    <React.StrictMode>
+        <Provider store={store}>
+            <BrowserRouter>
                 <App />
-            </Provider>
-            <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-            <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-            <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
-        </React.StrictMode>
-    </BrowserRouter>,
+            </BrowserRouter>
+        </Provider>
+        <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
+    </React.StrictMode>,
     document.getElementById("root")
 );
 
