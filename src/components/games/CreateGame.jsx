@@ -8,7 +8,7 @@ export const CreateGame = () => {
             state.gamesStore.games
                 .map((g) => g.id)
                 .filter((id) => id)
-                .reverse()[0] + 1
+                .reverse()[0]
     );
     const dispatch = useDispatch();
     return (
