@@ -15,7 +15,10 @@ export const App = () => (
         <div className="app-content">
             <Switch>
                 <Route exact path="/game-store/" component={Games} />
-                <Route path="/game-store/basket" component={withRedirect(Basket)} />
+                <Route
+                    path="/game-store/basket"
+                    component={withRedirect(Basket)}
+                />
                 <Route path="/game-store/login" component={Login} />
                 <Route path="/game-store/register" component={Register} />
                 <Route path="/game-store/create-game" component={CreateGame} />
