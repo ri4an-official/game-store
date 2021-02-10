@@ -11,7 +11,7 @@ export const Games = () => {
     useEffect(() => setGame(games.filter((g) => g.id === id)[0]), [id]);
     return (
         <>
-            <ol>
+            {/* <ol>
                 {Array(100)
                     .fill(0)
                     .map((_, i) => (
@@ -22,7 +22,7 @@ export const Games = () => {
                             </b>
                         </li>
                     ))}
-            </ol>
+            </ol> */}
             <div>
                 <Link
                     className="btn btn-primary noblock right"

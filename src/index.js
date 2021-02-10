@@ -4,7 +4,7 @@ import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import store from "./redux/redux-reducer";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 ReactDOM.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
