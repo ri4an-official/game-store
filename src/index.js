@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Router } from "react-router";
-import { createBrowserHistory } from "history";
 import { Provider } from "react-redux";
 import store from "./redux/redux-reducer";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/game-store">
         <React.StrictMode>
             <Provider store={store}>
                 <App />
