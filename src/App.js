@@ -13,13 +13,12 @@ export const App = () => (
     <div className="app container">
         <Menu />
         <div className="app-content">
-            {/* prettier-ignore */}
             <Switch>
-                <Route exact path={`${process.env.PUBLIC_URL}/`} component={Games} />
-                <Route path={`${process.env.PUBLIC_URL}/basket`} component={withRedirect(Basket)} />
-                <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
-                <Route path={`${process.env.PUBLIC_URL}/register`} component={Register} />
-                <Route path={`${process.env.PUBLIC_URL}/login`} component={CreateGame} />
+                <Route exact path="/" component={Games} />
+                <Route path="/basket" component={withRedirect(Basket)} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/create-game" component={CreateGame} />
                 <Route component={NotFound} />
             </Switch>
         </div>
