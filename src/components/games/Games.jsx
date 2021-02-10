@@ -26,7 +26,7 @@ export const Games = () => {
             <div>
                 <Link
                     className="btn btn-primary noblock right"
-                    to="/game-store/create-game"
+                    to="/create-game"
                 >
                     Add Game
                 </Link>

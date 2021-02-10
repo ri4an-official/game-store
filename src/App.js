@@ -14,14 +14,11 @@ export const App = () => (
         <Menu />
         <div className="app-content">
             <Switch>
-                <Route exact path="/game-store/" component={Games} />
-                <Route
-                    path="/game-store/basket"
-                    component={withRedirect(Basket)}
-                />
-                <Route path="/game-store/login" component={Login} />
-                <Route path="/game-store/register" component={Register} />
-                <Route path="/game-store/create-game" component={CreateGame} />
+                <Route exact path="/" component={Games} />
+                <Route path="/basket" component={withRedirect(Basket)} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/create-game" component={CreateGame} />
                 <Route component={NotFound} />
             </Switch>
         </div>
