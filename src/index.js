@@ -7,7 +7,7 @@ import store from "./redux/redux-reducer";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter basename="/game-store">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <React.StrictMode>
             <Provider store={store}>
                 <App />
