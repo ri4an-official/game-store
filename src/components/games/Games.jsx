@@ -9,20 +9,20 @@ export const Games = () => {
     const [game, setGame] = useState({});
     const [id, setId] = useState(0);
     useEffect(() => setGame(games.filter((g) => g.id === id)[0]), [id]);
-    // useEffect(
-    //     () =>
-    //         [...Array(100).keys()]
-    //             .map((i) => i + 1)
-    //             .forEach((i) =>
-    //                 console.log(
-    //                     (i % 3 === 0 ? "Fizz" : "") +
-    //                         (i % 5 === 0 ? "Buzz" : "") || i
-    //                 )
-    //             ),
-    //     []
-    // );
     return (
         <>
+            <ol>
+                {Array(100)
+                    .fill(0)
+                    .map((_, i) => (
+                        <li>
+                            <b>
+                                {(i % 3 === 0 ? "Fizz" : "") +
+                                    (i % 5 === 0 ? "Buzz" : "") || i}
+                            </b>
+                        </li>
+                    ))}
+            </ol>
             <div>
                 <Link
                     className="btn btn-primary noblock right"
@@ -31,12 +31,15 @@ export const Games = () => {
                     Add Game
                 </Link>
                 <h1 className="noblock">Games</h1>
-            </div><br/>
+            </div>
+            <br />
             <div className="games">
                 <div className="block-left">
                     {games.map((g) => (
                         <>
-                            <Game setId={() => setId(g.id)}>{g}</Game>
+                            <Game key={g.id} setId={() => setId(g.id)}>
+                                {g}
+                            </Game>
                             <p />
                         </>
                     ))}

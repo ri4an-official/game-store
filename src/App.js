@@ -9,7 +9,6 @@ import { Basket } from "./components/Basket";
 import { NotFound } from "./components/NotFound";
 import { withRedirect } from "./components/hocs/withRedirect";
 import { CreateGame } from "./components/games/CreateGame";
-
 export const App = () => (
     <div className="app">
         <Menu />
