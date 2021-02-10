@@ -37,10 +37,10 @@ export const Games = () => {
                 <div className="block-left">
                     {games.map((g) => (
                         <>
-                            <Game key={g.id} setId={() => setId(g.id)}>
+                            <Game key={Date.now()} setId={() => setId(g.id)}>
                                 {g}
                             </Game>
-                            <p />
+                            <p key={Date.now() + 1} />
                         </>
                     ))}
                 </div>
