@@ -11,18 +11,6 @@ export const Games = () => {
     useEffect(() => setGame(games.filter((g) => g.id === id)[0]), [id]);
     return (
         <>
-            {/* <ol>
-                {Array(100)
-                    .fill(0)
-                    .map((_, i) => (
-                        <li>
-                            <b>
-                                {(i % 3 === 0 ? "Fizz" : "") +
-                                    (i % 5 === 0 ? "Buzz" : "") || i}
-                            </b>
-                        </li>
-                    ))}
-            </ol> */}
             <div>
                 <Link
                     className="btn btn-primary noblock right"
@@ -53,7 +41,7 @@ export const Games = () => {
 };
 const Game = ({ children, setId }) => (
     <div onClick={setId} className="game shadow">
-        <h2 className="noblock">{children.title}</h2>{" "}
+        <h2 className="noblock">{children.title}</h2>
         <b className="noblock right">{children.price} руб.</b>
         <div>
             <Button variant="secondary">Add to basket</Button>
