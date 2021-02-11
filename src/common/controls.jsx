@@ -1,5 +1,5 @@
 import { Form } from "react-bootstrap";
 
-export const Input = (props) => (
-    <Form.Control {...props} required type="input" />
+export const Input = ({ input }) => (
+    <Form.Control {...input} required type="input" />
 );

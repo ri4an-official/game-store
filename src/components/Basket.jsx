@@ -5,10 +5,23 @@ export const Basket = () => {
     return (
         <div className="container">
             <h2>Basket</h2>
-            <Table variant="dark">
-                {games.map((g) => (
-                    <Row>{g}</Row>
-                ))}
+            <Table striped bordered hover variant="dark">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Title</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {games.map((g) => (
+                        <tr>
+                            <td>{g.id}</td>
+                            <td>{g.title}</td>
+                            <td>{g.price}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </Table>
         </div>
     );

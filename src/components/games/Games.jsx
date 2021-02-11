@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Game } from "./Game";
 import { GameDetails } from "./GameDetails";
 
 export const Games = () => {
@@ -39,12 +39,4 @@ export const Games = () => {
         </>
     );
 };
-const Game = ({ children, setId }) => (
-    <div onClick={setId} className="game shadow">
-        <h2 className="noblock">{children.title}</h2>
-        <b className="noblock right">{children.price} руб.</b>
-        <div>
-            <Button variant="secondary">Add to basket</Button>
-        </div>
-    </div>
-);
+

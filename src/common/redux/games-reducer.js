@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
-    name: "games",
+    name: "gamesStore",
     initialState: {
         games: [
             { id: 0, title: "CS:GO", price: 1000 },
             { id: 1, title: "Overwatch", price: 2000 },
         ],
-        isAuth: true,
     },
     reducers: {
         add(state, action) {

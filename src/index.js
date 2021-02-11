@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
-import store from "./redux/redux-reducer";
+import store from "./common/redux/redux-reducer";
 import { BrowserRouter } from "react-router-dom";
-
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
@@ -16,6 +15,7 @@ ReactDOM.render(
         <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
         <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </React.StrictMode>,
     document.getElementById("root")
 );
