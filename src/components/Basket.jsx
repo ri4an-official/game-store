@@ -1,6 +1,6 @@
 import { Row, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
-export const Basket = (props) => {
+export const Basket = () => {
     const games = useSelector((state) => state.basket.games);
     return (
         <div className="container">
