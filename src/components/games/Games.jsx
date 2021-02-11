@@ -33,7 +33,7 @@ export const Games = () => {
                 <h1 className="noblock">Games</h1>
             </div>
             <br />
-            <div className="games">
+            <div className="games container">
                 <div className="block-left">
                     {games.map((g) => (
                         <>
