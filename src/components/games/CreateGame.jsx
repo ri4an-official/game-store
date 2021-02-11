@@ -1,6 +1,6 @@
 import { AddGameForm } from "./AddGameForm";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../../redux/games-reducer";
+import { add } from "../../common/redux/games-reducer";
 
 export const CreateGame = () => {
     const lastId = useSelector(
@@ -8,7 +8,7 @@ export const CreateGame = () => {
             state.gamesStore.games
                 .map((g) => g.id)
                 .filter((id) => id)
-                .reverse()[0] + 1
+                .reverse()[0]
     );
     const dispatch = useDispatch();
     return (
