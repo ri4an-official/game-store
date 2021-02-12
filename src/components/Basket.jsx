@@ -1,6 +1,8 @@
-import { Row, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
-export const Basket = () => {
+import { withRouter } from "react-router";
+import { compose } from "redux";
+export const Basket = compose(withRouter)(() => {
     const games = useSelector((state) => state.basket.games);
     return (
         <div className="container">
@@ -8,9 +10,9 @@ export const Basket = () => {
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <td>#</td>
-                        <td>Title</td>
-                        <td>Price</td>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,4 +27,4 @@ export const Basket = () => {
             </Table>
         </div>
     );
-};
+});

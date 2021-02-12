@@ -1,11 +1,10 @@
-import { Button } from "bootstrap";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/controls";
 
 export const LoginForm = reduxForm({ form: "login" })(() => {
     return (
-        <Form>
+        <Form className="justify-content-center">
             <Form.Group>
                 <Form.Label>Username</Form.Label>
                 <Field name="username" component={Input} />

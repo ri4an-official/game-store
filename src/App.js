@@ -10,12 +10,12 @@ import { NotFound } from "./components/NotFound";
 import { withRedirect } from "./common/hocs/withRedirect";
 import { CreateGame } from "./components/games/CreateGame";
 export const App = () => (
-    <div className="app container-xl">
+    <div className="app container">
         <Menu />
         <div className="app-content">
             <Switch>
                 <Route exact path="/" component={Games} />
-                <Route path="/basket" component={withRedirect(Basket)} />
+                <Route path="/basket" component={Basket} />
                 <Route path="/login" component={Login} />
                 {/* <Route path="/register" component={Register} /> */}
                 <Route path="/create-game" component={CreateGame} />
