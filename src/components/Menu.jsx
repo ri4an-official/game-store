@@ -1,4 +1,4 @@
-import { Nav, Navbar } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import basket from "./../common/images/shopping-cart.svg";
@@ -22,7 +22,12 @@ export const Menu = () => {
                                 className="nav-link"
                                 to="/basket"
                             >
-                                <img src={basket} /> Basket <span className="count">{countGamesInBasket}</span>
+                                <img src={basket} /> Basket{" "}
+                                <span className="count">
+                                    {countGamesInBasket
+                                        ? countGamesInBasket
+                                        : null}
+                                </span>
                             </Link>
                         </li>
                         <li className="nav-item">

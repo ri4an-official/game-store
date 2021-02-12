@@ -6,8 +6,8 @@ export const Game = ({ children, setId }) => {
     const dispatch = useDispatch();
     return (
         <div onClick={setId} className="game shadow">
-            <h2 className="noblock">{children.title}</h2>
-            <b className="noblock right">{children.price} руб.</b>
+            <h4 className="noblock">{children.name}</h4>
+            <b className="noblock right">{children.rating} руб.</b>
             <div>
                 <Button
                     onClick={() => dispatch(add({ ...children }))}

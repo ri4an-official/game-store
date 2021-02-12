@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
     name: "gamesStore",
     initialState: {
-        games: [
-            { id: 0, title: "CS:GO", price: 1000 },
-            { id: 1, title: "Overwatch", price: 2000 },
-        ],
+        games: [],
     },
     reducers: {
+        setGames(state, { payload }) {
+            state.games = [...payload];
+        },
         add(state, action) {
             state.games.push(action.payload);
         },
@@ -19,4 +19,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { add, remove } = slice.actions;
+export const { add, remove, setGames } = slice.actions;

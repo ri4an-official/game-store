@@ -1,15 +1,10 @@
-const { default: axios } = require("axios");
+import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "",
-    withCredentials: true,
+    baseURL: "https://rawg-video-games-database.p.rapidapi.com/games",
     headers: {
-        "Content-Type": "application/json",
+        "x-rapidapi-key": "37437d4ec5msh0b5b355674a5af8p1f7993jsndb1173addba0",
+        "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
     },
 });
-
-export const games = {
-    async get(id) {
-        return await instance.get(id);
-    },
-};
+export const getGames = () => instance.get().then((r) => r.data.results);

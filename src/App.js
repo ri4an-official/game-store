@@ -9,7 +9,7 @@ import { Basket } from "./components/Basket";
 import { NotFound } from "./components/NotFound";
 import { CreateGame } from "./components/games/CreateGame";
 export const App = () => (
-    <div className="app container">
+    <div className="app container shadow">
         <Menu />
         <div className="app-content">
             <Switch>

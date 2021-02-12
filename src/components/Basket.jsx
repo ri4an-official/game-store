@@ -17,13 +17,13 @@ export const Basket = compose(
             {games.map((g) => (
                 <>
                     <div className="game-in-basket shadow">
-                        <h4 className="noblock item">{g.title}</h4>
+                        <h3 className="noblock item">{g.name}</h3>
                         <img
                             className="btn btn-danger item right"
                             onClick={() => dispatch(remove(g.id))}
                             src={bin}
                         />{" "}
-                        <strong className="right item">{g.price} руб.</strong>
+                        <strong className="right item">{g.rating} руб.</strong>
                     </div>
                     <p />
                 </>

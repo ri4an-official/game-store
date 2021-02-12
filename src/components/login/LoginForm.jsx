@@ -1,7 +1,6 @@
 import { MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow } from "mdbreact";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../../common/controls";
 
 export const LoginForm = reduxForm({ form: "login" })((props) => {
     return (

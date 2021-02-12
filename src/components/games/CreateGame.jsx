@@ -17,12 +17,11 @@ export const CreateGame = compose(withRouter)((props) => {
         <>
             <h1>Add game</h1>
             <AddGameForm
-                onSubmit={({ title, price }) => {
+                onSubmit={(game) => {
                     dispatch(
                         add({
                             id: lastId + 1,
-                            title,
-                            price,
+                            ...game,
                         })
                     );
                     props.history.push("/");

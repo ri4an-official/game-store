@@ -1,9 +1,8 @@
-
 export const GameDetails = ({ children }) => {
     return (
         <span className="game-description">
-            <h1 className="noblock">{children.title}</h1>{" "}
-            <b className="noblock right">{children.price} руб.</b>
+            <h3 className="noblock">{children && children.name}</h3>{" "}
+            <b className="noblock right">{children && children.rating + " $"} </b>
         </span>
     );
 };

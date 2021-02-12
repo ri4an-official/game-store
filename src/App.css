@@ -13,6 +13,9 @@ footer {
     margin-top: 20px;
     margin-right: 20px;
 }
+h3.item {
+    margin-left: 20px;
+}
 .count {
     color: red;
     margin-top: 10px;
@@ -24,7 +27,7 @@ footer {
 .app-content {
     margin: 60px;
 }
-.game h2:hover {
+.game h4:hover {
     color: red;
     text-decoration: none;
 }
@@ -37,6 +40,8 @@ footer {
 .game:hover {
     background-color: rgb(228, 225, 225);
     cursor: pointer;
+}
+.loader {
 }
 .noblock {
     display: inline-block;

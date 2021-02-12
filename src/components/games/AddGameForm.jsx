@@ -7,13 +7,13 @@ export const AddGameForm = reduxForm({ form: "add-game" })((props) => (
             <Form.Label>
                 <h3>Title</h3>
             </Form.Label>
-            <Field name="title" component={Input} />
+            <Field name="name" component={Input} />
         </Form.Group>
         <Form.Group>
             <Form.Label>
                 <h3>Price</h3>
             </Form.Label>
-            <Field name="price" component={Input} />
+            <Field name="raiting" component={Input} />
         </Form.Group>
         <Form.Group>
             <Button variant="success" type="submit">
