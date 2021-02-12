@@ -7,8 +7,8 @@ const slice = createSlice({
             { username: "Vadim", password: "123" },
             { username: "Vasya", password: "111" },
         ],
-        auth: false,
-        username: "",
+        auth: true,
+        username: "Vadim",
         error: "",
     },
     reducers: {

@@ -1,12 +1,7 @@
 import { Button, Form } from "react-bootstrap";
-import { withRouter } from "react-router";
-import { compose } from "redux";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/controls";
-export const AddGameForm = compose(
-    withRouter,
-    reduxForm({ form: "add-game" })
-)((props) => (
+export const AddGameForm = reduxForm({ form: "add-game" })((props) => (
     <Form className="col-md-5 mt-5" onSubmit={props.handleSubmit}>
         <Form.Group>
             <Form.Label>
@@ -21,11 +16,7 @@ export const AddGameForm = compose(
             <Field name="price" component={Input} />
         </Form.Group>
         <Form.Group>
-            <Button
-                onClick={() => props.history.push("/")}
-                variant="success"
-                type="submit"
-            >
+            <Button variant="success" type="submit">
                 Create
             </Button>
         </Form.Group>

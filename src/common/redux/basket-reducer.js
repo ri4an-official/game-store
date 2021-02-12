@@ -10,7 +10,7 @@ const slice = createSlice({
             games.push(payload);
         },
         remove({ games }, { payload }) {
-            games.pop(payload);
+            games.pop(games.filter((g) => g.id === payload));
         },
     },
 });

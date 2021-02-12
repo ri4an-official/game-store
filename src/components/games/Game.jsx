@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { add } from "../../common/redux/basket-reducer";
-
+import basket from "../../common/images/add-to-cart.svg";
 export const Game = ({ children, setId }) => {
     const dispatch = useDispatch();
     return (
@@ -11,9 +11,9 @@ export const Game = ({ children, setId }) => {
             <div>
                 <Button
                     onClick={() => dispatch(add({ ...children }))}
-                    variant="secondary"
+                    className="right" variant="light"
                 >
-                    Add to basket
+                    <img src={basket} />
                 </Button>
             </div>
         </div>

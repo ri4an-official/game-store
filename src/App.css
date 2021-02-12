@@ -6,6 +6,17 @@ footer {
     background-color: rgb(36, 33, 33);
     color: white;
 }
+.game-in-basket {
+    height: 80px;
+}
+.item {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+.count {
+    color: red;
+    margin-top: 10px;
+}
 footer {
     margin: 10px;
     padding: 10px;

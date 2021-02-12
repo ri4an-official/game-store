@@ -1,8 +1,12 @@
 import { Nav, Navbar } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import basket from "./../common/images/shopping-cart.svg";
 export const Menu = () => {
     const login = useSelector((state) => state.login);
+    const countGamesInBasket = useSelector(
+        (state) => state.basket.games.length
+    );
     return (
         <>
             <Navbar expand="lg">
@@ -18,7 +22,7 @@ export const Menu = () => {
                                 className="nav-link"
                                 to="/basket"
                             >
-                                Basket
+                                <img src={basket} /> Basket <span className="count">{countGamesInBasket}</span>
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -31,7 +35,7 @@ export const Menu = () => {
                                     Sign In
                                 </Link>
                             ) : (
-                                <b>login.username</b>
+                                <b>{login.username}</b>
                             )}
                         </li>
 
