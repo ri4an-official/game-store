@@ -1,0 +1,23 @@
+<svg id="Layer_1_copy" height="20" viewBox="0 0 512 512" width="25"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1 copy">
+    <linearGradient id="linear-gradient" gradientUnits="userSpaceOnUse" x1="554.985" x2="48.626" y1="44.642" y2="551.001">
+        <stop offset="0" stop-color="#f7941e"/>
+        <stop offset="1" stop-color="#ee2a7b"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="643.171" x2="136.812" xlink:href="#linear-gradient" y1="132.829" y2="639.188"/>
+    <linearGradient id="linear-gradient-3" x1="486.478" x2="-19.881" xlink:href="#linear-gradient" y1="-23.864" y2="482.495"/>
+    <linearGradient id="linear-gradient-4" x1="377.171" x2="-129.188" xlink:href="#linear-gradient" y1="-133.171" y2="373.188"/>
+    <linearGradient id="linear-gradient-5" x1="393.171" x2="-113.188" xlink:href="#linear-gradient" y1="-117.171" y2="389.188"/>
+    <linearGradient id="linear-gradient-6" gradientTransform="matrix(.496 .868 -.868 .496 300.408 -85.652)" x1="475.171" x2="-31.188" xlink:href="#linear-gradient" y1="-35.171" y2="471.188"/>
+    <linearGradient id="linear-gradient-7" x1="447.171" x2="-59.188" xlink:href="#linear-gradient" y1="-63.171" y2="443.188"/>
+    <linearGradient id="linear-gradient-8" x1="503.171" x2="-3.188" xlink:href="#linear-gradient" y1="-7.171" y2="499.188"/>
+    <path d="m191.627 448a40 40 0 1 0 -40 40 40.046 40.046 0 0 0 40-40zm-64 0a24 24 0 1 1 24 24 24.027 24.027 0 0 1 -24-24z" fill="url(#linear-gradient)"/>
+    <path d="m368 448a40 40 0 1 0 -40 40 40.046 40.046 0 0 0 40-40zm-64 0a24 24 0 1 1 24 24 24.027 24.027 0 0 1 -24-24z" fill="url(#linear-gradient-2)"/>
+    <path d="m480 16h-72a40.046 40.046 0 0 0 -40 40v56h-80v16h80v176h-248.936a23.97 23.97 0 0 1 -22.764-16.411l-53.2-159.589h228.9v-16h-240a8 8 0 0 0 -7.59 10.53l56.707 170.12a39.951 39.951 0 0 0 37.947 27.35h248.936v24h-296a8 8 0 0 0 -6.4 12.8l24 32a8 8 0 0 0 6.4 3.2h280a40.046 40.046 0 0 0 40-40v-288h56a8 8 0 0 0 7.761-6.06l8-32a8 8 0 0 0 -7.761-9.94zm-14.246 32h-57.754a8 8 0 0 0 -8 8v296a24.027 24.027 0 0 1 -24 24h-276l-12-16h288a8 8 0 0 0 8-8v-296a24.027 24.027 0 0 1 24-24h61.754z" fill="url(#linear-gradient-3)"/>
+    <path d="m80 144h24v16h-24z" fill="url(#linear-gradient-4)"/>
+    <path d="m112 144h24v16h-24z" fill="url(#linear-gradient-5)"/>
+    <path d="m159.502 208h128.996v16.001h-128.996z" fill="url(#linear-gradient-6)" transform="matrix(.496 -.868 .868 .496 -74.675 303.323)"/>
+    <path d="m184 176a24 24 0 1 0 24 24 24.027 24.027 0 0 0 -24-24zm0 32a8 8 0 1 1 8-8 8.009 8.009 0 0 1 -8 8z" fill="url(#linear-gradient-7)"/>
+    <path d="m240 232a24 24 0 1 0 24-24 24.027 24.027 0 0 0 -24 24zm32 0a8 8 0 1 1 -8-8 8.009 8.009 0 0 1 8 8z" fill="url(#linear-gradient-8)"/>
+</svg>

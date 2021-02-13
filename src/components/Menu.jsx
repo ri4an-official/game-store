@@ -1,7 +1,7 @@
 import { Navbar } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import basket from "./../common/images/shopping-cart.svg";
+import basket from "./../common/images/free-icon-shopping-4220891.svg";
 export const Menu = () => {
     const login = useSelector((state) => state.login);
     const countGamesInBasket = useSelector(
@@ -9,7 +9,7 @@ export const Menu = () => {
     );
     return (
         <>
-            <Navbar expand="lg">
+            <Navbar expand="lg" sticky="top" className="container">
                 <Link data-toggle="tab" className="navbar-brand" to="/">
                     Game store
                 </Link>

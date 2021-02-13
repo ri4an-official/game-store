@@ -23,7 +23,6 @@ export const Basket = compose(
                             onClick={() => dispatch(remove(g.id))}
                             src={bin}
                         />{" "}
-                        <strong className="right item">{g.rating} руб.</strong>
                     </div>
                     <p />
                 </>

@@ -3,26 +3,24 @@
 }
 html,
 footer {
-    background-color: rgb(36, 33, 33);
+    background-color: rgb(41, 37, 37);
     color: white;
 }
+footer {
+    padding: 10px;
+}
+.contacts {
+    padding: 10px;
+}
 .game-in-basket {
-    height: 80px;
+    height: 100px;
 }
-.item {
-    margin-top: 20px;
-    margin-right: 20px;
-}
-h3.item {
-    margin-left: 20px;
+.game-in-basket .item {
+    margin: 30px;
 }
 .count {
     color: red;
     margin-top: 10px;
-}
-footer {
-    margin: 10px;
-    padding: 10px;
 }
 .app-content {
     margin: 60px;

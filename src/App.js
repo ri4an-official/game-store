@@ -9,9 +9,9 @@ import { Basket } from "./components/Basket";
 import { NotFound } from "./components/NotFound";
 import { CreateGame } from "./components/games/CreateGame";
 export const App = () => (
-    <div className="app container shadow">
+    <div className="app">
         <Menu />
-        <div className="app-content">
+        <div className="app-content container">
             <Switch>
                 <Route exact path="/" component={Games} />
                 <Route path="/basket" component={Basket} />

@@ -42,7 +42,7 @@ export const Games = () => {
                 <h1 className="noblock">Games</h1>
             </div>
             <br />
-            {games.length <= 0 ? (
+            {!games.length ? (
                 <Loader />
             ) : (
                 <div className="games container">
