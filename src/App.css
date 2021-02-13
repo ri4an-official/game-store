@@ -8,6 +8,7 @@ footer {
 }
 footer {
     padding: 10px;
+    max-height: 20%;
 }
 .contacts {
     padding: 10px;
@@ -32,6 +33,11 @@ footer {
 .right {
     float: right;
 }
+.game h4,
+.game div,
+.game b {
+    margin: 10px;
+}
 .game {
     height: 100px;
 }
@@ -55,4 +61,10 @@ footer {
     width: 50%;
     height: 1000px;
     overflow: auto;
+}
+.red {
+    color: red;
+}
+.center {
+    text-align: center;
 }
