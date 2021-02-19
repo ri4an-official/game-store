@@ -4,7 +4,6 @@ import { Footer } from "./components/Footer";
 import { Menu } from "./components/Menu";
 import { Redirect, Route, Switch } from "react-router";
 import { Login } from "./components/login/Login";
-import { Register } from "./components/Register";
 import { Basket } from "./components/Basket";
 import { NotFound } from "./components/NotFound";
 import { CreateGame } from "./components/games/CreateGame";

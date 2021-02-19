@@ -1,19 +1,21 @@
+import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
-
+let initialState = {
+    games: [] as Game[],
+};
+export type Games = typeof initialState;
 const slice = createSlice({
     name: "gamesStore",
-    initialState: {
-        games: [],
-    },
+    initialState,
     reducers: {
         setGames(state, { payload }) {
             state.games = [...payload];
         },
-        add(state, action) {
-            state.games.push(action.payload);
+        add(state, { payload }) {
+            state.games.push(payload);
         },
         remove(state, action) {
-            state.games.pop(action.payload);
+            // state.games.pop(action.payload);
         },
     },
 });

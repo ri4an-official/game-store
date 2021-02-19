@@ -29,7 +29,7 @@ export const Basket = compose(
                         <p />
                     </>
                 ))
-            )}
+            )} 
         </div>
     );
 });
