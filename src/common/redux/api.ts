@@ -1,4 +1,4 @@
-import { Game } from './../models/Game';
+import { Game } from "./../models/Game";
 import axios from "axios";
 
 const games = axios.create({
@@ -8,4 +8,9 @@ const games = axios.create({
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
     },
 });
-export const getGames = () : Promise<Game[]> => games.get("").then((r) => r.data.results);
+export const getCountGames = () =>
+    games.get("").then((r) => r.data.count as number);
+export const getGames = (page: number) =>
+    axios
+        .get(`https://api.rawg.io/api/games?page=${page}`)
+        .then((r) => r.data.results as Game[]);

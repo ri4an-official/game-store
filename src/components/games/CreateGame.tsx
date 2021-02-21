@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../common/redux/games-reducer";
 import { withRouter } from "react-router";
 import { compose } from "redux";
+import { State } from "../../common/redux/redux-reducer";
+import { Title } from "../../common/Title";
 
 export const CreateGame = compose(withRouter)((props) => {
     const lastId = useSelector(
-        (state) =>
+        (state: State) =>
             state.gamesStore.games
                 .map((g) => g.id)
                 .filter((id) => id)
@@ -15,7 +17,7 @@ export const CreateGame = compose(withRouter)((props) => {
     const dispatch = useDispatch();
     return (
         <>
-            <h1>Add game</h1>
+            <Title>Add game</Title>
             <AddGameForm
                 onSubmit={(game) => {
                     dispatch(

@@ -1,20 +1,31 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setGames } from "../../common/redux/games-reducer";
+import { setGames, setFetch } from "../../common/redux/games-reducer";
 import { Loader } from "../../common/loader/Loader";
-import { getGames } from "../../common/redux/api";
+import { getCountGames, getGames } from "../../common/redux/api";
 import { State } from "../../common/redux/redux-reducer";
 import { Game } from "../../common/models/Game";
-import { add } from "../../common/redux/basket-reducer";
-import basket from "../../common/images/add-to-cart.svg";
+import { Title } from "../../common/Title";
+import Pagination from "rc-pagination";
+import { GameItem } from "./GameItem";
+import { GameDetails } from "./GameDetails";
+
 export const Games = () => {
-    const games = useSelector((state: State) => state.gamesStore.games);
+    const { games, isFetch } = useSelector((state: State) => state.gamesStore);
+    const dispatch = useDispatch();
+
     const [game, setGame] = useState({} as Game);
     const [id, setId] = useState(0);
-    const dispatch = useDispatch();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [total, setTotal] = useState(0);
     //@ts-ignore
-    useEffect(() => getGames().then((games) => dispatch(setGames(games))), []);
+    useEffect(() => getCountGames().then((count) => setTotal(count)), []);
+    useEffect(() => {
+        dispatch(setFetch(true));
+        //@ts-ignore
+        getGames(currentPage).then((games) => dispatch(setGames(games)));
+    }, [currentPage]);
     useEffect(() => setGame(games.filter((g) => g.id === id)[0]), [id]);
     return (
         <>
@@ -25,10 +36,10 @@ export const Games = () => {
                 >
                     + Add game
                 </Link>
-                <h1 className="noblock">Games</h1>
+                <Title noblock>Games</Title>
             </div>
             <br />
-            {!games.length ? (
+            {isFetch ? (
                 <Loader />
             ) : (
                 <div className="games container">
@@ -48,37 +59,21 @@ export const Games = () => {
                     <div className="block-right">
                         <GameDetails>{game}</GameDetails>
                     </div>
+                    <Pagination
+                        current={currentPage}
+                        total={total}
+                        pageSize={games.length}
+                        onChange={(page, _) => setCurrentPage(page)}
+                        className="center pagination"
+                        jumpNextIcon="_"
+                        jumpPrevIcon="_"
+                        selectPrefixCls="page-item page-link active"
+                        prevIcon="<<"
+                        nextIcon=">>"
+                    />
                 </div>
             )}
         </>
     );
 };
-const GameItem = ({
-    children,
-    setId,
-}: {
-    setId: () => void;
-    children: Game;
-}) => {
-    const dispatch = useDispatch();
-    return (
-        <div onClick={setId} className="game shadow">
-            <h4 className="noblock">{children.name}</h4>
-            <b className="noblock right">{children.rating} / 10</b>
-            <div onClick={() => dispatch(add({ ...children }))}>
-                <img className="right" src={basket} />
-                <h3 className="noblock right">+</h3>
-            </div>
-        </div>
-    );
-};
-const GameDetails = ({ children }: { children: Game }) => {
-    return (
-        <span className="game-description">
-            <h3 className="noblock">{children && children.name}</h3>{" "}
-            <b className="noblock right">
-                {children && children.rating + " / 10"}{" "}
-            </b>
-        </span>
-    );
-};
+

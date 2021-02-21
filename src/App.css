@@ -32,6 +32,7 @@ footer {
 }
 .right {
     float: right;
+    margin-right: 0px;
 }
 .game h4,
 .game div,
@@ -67,4 +68,7 @@ footer {
 }
 .center {
     text-align: center;
+}
+.basket{
+    min-height: 400px;
 }

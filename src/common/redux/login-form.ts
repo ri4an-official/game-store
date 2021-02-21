@@ -3,14 +3,13 @@ import { User } from "../models/User";
 
 let initialState = {
     users: [
-        { name: "Vadim", password: "123" },
-        { name: "Vasya", password: "111" },
+        { name: "Vadim", password: "1" },
+        { name: "Vasya", password: "2" },
     ] as User[],
     auth: true,
     username: "Vadim",
     error: "",
 };
-export type Login = typeof initialState;
 const slice = createSlice({
     name: "login",
     initialState,

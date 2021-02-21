@@ -1,15 +1,18 @@
 import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
-let initialState = {
-    games: [] as Game[],
-};
-export type Games = typeof initialState;
 const slice = createSlice({
     name: "gamesStore",
-    initialState,
+    initialState: {
+        games: [] as Game[],
+        isFetch: true,
+    },
     reducers: {
         setGames(state, { payload }) {
             state.games = [...payload];
+            state.isFetch = false;
+        },
+        setFetch(state, { payload }) {
+            state.isFetch = payload;
         },
         add(state, { payload }) {
             state.games.push(payload);
@@ -21,4 +24,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { add, remove, setGames } = slice.actions;
+export const { add, remove, setGames, setFetch } = slice.actions;

@@ -15,7 +15,7 @@ export const LoginForm = reduxForm({ form: "login" })((props) => {
                         <div className="grey-text">
                             <Field
                                 name="title"
-                                component={({ input }) => (
+                                component={({ input }: any) => (
                                     <MDBInput
                                         label="Type your email"
                                         icon="envelope"
@@ -30,7 +30,7 @@ export const LoginForm = reduxForm({ form: "login" })((props) => {
                             />
                             <Field
                                 name="password"
-                                component={({ input }) => (
+                                component={({ input }: any) => (
                                     <MDBInput
                                         label="Type your password"
                                         icon="lock"

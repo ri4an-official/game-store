@@ -1,12 +1,13 @@
 import { Navbar } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { State } from "../common/redux/redux-reducer";
 import basket from "./../common/images/free-icon-shopping-4220891.svg";
+import profile from "./../common/images/profile.svg";
 export const Menu = () => {
-    const login = useSelector((state) => state.login);
-    const countGamesInBasket = useSelector(
-        (state) => state.basket.games.length
-    );
+    const { auth, username } = useSelector((state: State) => state.login);
+    //prettier-ignore
+    const countGamesInBasket = useSelector((state: State) => state.basket.games.length);
     return (
         <>
             <Navbar expand="lg" sticky="top" className="container">
@@ -31,7 +32,7 @@ export const Menu = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            {!login.auth ? (
+                            {!auth ? (
                                 <Link
                                     data-toggle="tab"
                                     className="nav-link"
@@ -40,7 +41,10 @@ export const Menu = () => {
                                     Sign In
                                 </Link>
                             ) : (
-                                <b>{login.username}</b>
+                                <div className="nav-item right">
+                                    <img src={profile} />
+                                    <b>{username}</b>
+                                </div>
                             )}
                         </li>
 

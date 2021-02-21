@@ -15,7 +15,6 @@ export const App = () => (
                 <Route exact path="/" component={Games} />
                 <Route path="/basket" component={Basket} />
                 <Route path="/login" component={Login} />
-                {/* <Route path="/register" component={Register} /> */}
                 <Route path="/create-game" component={CreateGame} />
                 <Route path="/game-store" render={() => <Redirect to="/" />} />
                 <Route component={NotFound} />
