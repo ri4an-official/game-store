@@ -12,7 +12,7 @@ export const App = () => (
         <Menu />
         <div className="app-content container">
             <Switch>
-                <Route exact path="/" component={Games} />
+                <Route exact path="/:gameSlug?" component={Games} />
                 <Route path="/basket" component={Basket} />
                 <Route path="/login" component={Login} />
                 <Route path="/create-game" component={CreateGame} />

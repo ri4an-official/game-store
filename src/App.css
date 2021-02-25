@@ -3,12 +3,12 @@
 }
 html,
 footer {
-    background-color: rgb(41, 37, 37);
+    background-color: rgb(26, 24, 24);
     color: white;
 }
 footer {
     padding: 10px;
-    max-height: 20%;
+    max-height: 100px;
 }
 .contacts {
     padding: 10px;
@@ -25,28 +25,31 @@ footer {
 }
 .app-content {
     margin: 60px;
-}
-.game h4:hover {
-    color: red;
-    text-decoration: none;
+    min-height: 400px;
 }
 .right {
     float: right;
     margin-right: 0px;
 }
-.game h4,
-.game div,
-.game b {
-    margin: 10px;
-}
 .game {
-    height: 100px;
+    margin: 5px;
+    width: 500px;
+    height: 320px;
+    display: inline-block;
+}
+.game-img {
+    margin: 8px;
+    width: 400px;
+    height: 230px;
+}
+.game div.right {
+}
+.game h3:hover {
+    color: red;
 }
 .game:hover {
     background-color: rgb(228, 225, 225);
     cursor: pointer;
-}
-.loader {
 }
 .noblock {
     display: inline-block;
@@ -69,6 +72,6 @@ footer {
 .center {
     text-align: center;
 }
-.basket{
-    min-height: 400px;
+.basket {
+    margin: auto;
 }

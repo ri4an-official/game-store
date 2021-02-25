@@ -8,9 +8,14 @@ const games = axios.create({
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
     },
 });
+
 export const getCountGames = () =>
     games.get("").then((r) => r.data.count as number);
-export const getGames = (page: number) =>
+
+export const getGames = (page = 1) =>
     axios
         .get(`https://api.rawg.io/api/games?page=${page}`)
         .then((r) => r.data.results as Game[]);
+
+export const getGameDetails = (name: string) =>
+    games.get(`/${name}`).then((r) => r.data as Game);

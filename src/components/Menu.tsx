@@ -25,9 +25,7 @@ export const Menu = () => {
                             >
                                 <img src={basket} /> Basket{" "}
                                 <span className="count">
-                                    {countGamesInBasket
-                                        ? countGamesInBasket
-                                        : null}
+                                    {countGamesInBasket || null}
                                 </span>
                             </Link>
                         </li>

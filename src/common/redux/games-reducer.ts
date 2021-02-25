@@ -7,17 +7,17 @@ const slice = createSlice({
         isFetch: true,
     },
     reducers: {
-        setGames(state, { payload }) {
+        setGames(state, { payload }: { payload: Game[] }) {
             state.games = [...payload];
             state.isFetch = false;
         },
-        setFetch(state, { payload }) {
+        setFetch(state, { payload }: { payload: boolean }) {
             state.isFetch = payload;
         },
-        add(state, { payload }) {
+        add(state, { payload }: { payload: Game }) {
             state.games.push(payload);
         },
-        remove(state, action) {
+        remove(state, { payload }) {
             // state.games.pop(action.payload);
         },
     },

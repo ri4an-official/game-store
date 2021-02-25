@@ -1,10 +1,15 @@
 import { Game } from "../../common/models/Game";
+import { NotFound } from "../NotFound";
 
-export const GameDetails = ({ children }: { children: Game; }) => (
-    <span className="game-description">
-        <h3 className="noblock">{children && children.name}</h3>{" "}
-        <b className="noblock right">
-            {children && children.rating + " / 10"}{" "}
-        </b>
-    </span>
-);
+export const GameDetails = ({ children }: { children: Game }) =>
+    children ? (
+        <div className="container game-description">
+            <div className="center">
+                <img src={children.background_image} width="550" height="320" />
+                <h1>{children.name}</h1>
+            </div>
+            <text dangerouslySetInnerHTML={{ __html: children.description }} />
+        </div>
+    ) : (
+        <NotFound />
+    );

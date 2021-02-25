@@ -1,7 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/controls";
-export const AddGameForm = reduxForm({ form: "add-game" })((props: any) => (
+export const AddGameForm = reduxForm({ form: "add-game" })((props) => (
     <Form className="col-md-5 mt-5" onSubmit={props.handleSubmit}>
         <Form.Group>
             <Form.Label>
