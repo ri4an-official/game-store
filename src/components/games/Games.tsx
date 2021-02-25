@@ -24,10 +24,8 @@ export const Games = compose(withRouter)(({ match }) => {
     const [selectedGame, setSelectedGame] = useState({} as Game);
     const [currentPage, setCurrentPage] = useState(1);
     const [total, setTotal] = useState(0);
-
-    useEffect(() => {
-        getCountGames().then((count) => setTotal(count));
-    }, []);
+    //@ts-ignore
+    useEffect(() => getCountGames().then((count) => setTotal(count)), []);
     useEffect(() => {
         dispatch(setFetch(true));
         getGameDetails(slug).then((game) => {

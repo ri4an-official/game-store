@@ -10,7 +10,7 @@ export const Basket = compose(withRedirect)(() => {
     const dispatch = useDispatch();
     return (
         <div className="container basket">
-            <Title>Basket vsdvd</Title>
+            <Title>Basket</Title>
             {!games.length ? (
                 <h4 className="center red">Basket is empty</h4>
             ) : (

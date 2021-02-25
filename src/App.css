@@ -29,7 +29,9 @@ footer {
 }
 .right {
     float: right;
-    margin-right: 0px;
+}
+.left {
+    float: left;
 }
 .game {
     margin: 5px;
@@ -42,7 +44,10 @@ footer {
     width: 400px;
     height: 230px;
 }
-.game div.right {
+.cart {
+    margin-bottom: 25px;
+    margin-right: 25px;
+    cursor: pointer;
 }
 .game h3:hover {
     color: red;
