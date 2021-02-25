@@ -1,7 +1,8 @@
-import { Alert } from "react-bootstrap";
-
+const toColor = (rating: number): string => {
+    if (rating > 4.6) return "green";
+    if (rating < 4.6 && rating > 4.3) return "yellow";
+    return "red";
+};
 export const Rating = ({ children }: { children: number }) => (
-    <Alert className="right" type={children < 3 ? "danger" : "success"}>
-        {children} / 10
-    </Alert>
+    <span className={`right ${toColor(children)}`}>{children} / 10</span>
 );
