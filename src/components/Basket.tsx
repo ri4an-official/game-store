@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { compose } from "redux";
 import { withRedirect } from "../common/hocs/withRedirect";
@@ -28,6 +29,9 @@ export const Basket = compose(withRedirect)(() => {
                     </>
                 ))
             )}
+            <Button className="right" variant="success">
+                + Buy
+            </Button>
         </div>
     );
 });

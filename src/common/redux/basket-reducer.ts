@@ -9,10 +9,10 @@ const slice = createSlice({
     name: "basket",
     initialState,
     reducers: {
-        addToBasket({ games }, { payload }: { payload: Game }): void {
+        addToBasket({ games }, { payload }: { payload: Game }) {
             games.push(payload);
         },
-        remove({ games }, { payload }: { payload: number }): void {
+        remove({ games }, { payload }: { payload: number }) {
             games = _.remove(games, { id: payload });
         },
     },

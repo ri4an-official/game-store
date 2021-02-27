@@ -1,23 +1,26 @@
 import { Game } from "../../common/models/Game";
 import { Rating } from "../Rating";
-import { compose } from "redux";
-import { withRouter } from "react-router";
-import { AddToBasket } from "../AddToBasket";
-export const GameItem = compose(withRouter)(({ children, history }) => {
-    const _children = children as Game;
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../../common/redux/basket-reducer";
+import basket from "../../common/images/add-to-cart.svg";
+export const GameItem = ({ children }: { children: Game }) => {
+    const dispatch = useDispatch();
     return (
-        <span
-            onClick={() => history.push(`/games/${_children.slug}`)}
-            className="game noblock shadow"
-        >
-            <div className="center">
-                <img className="game-img" src={_children.background_image} />
-                <span>
-                    <Rating>{_children.rating}</Rating>
-                    <h3 className="noblock">{_children.name}</h3>
-                    <AddToBasket>{_children}</AddToBasket>
+        <Link to={`/games/${children.slug}`} className="game noblock shadow">
+            <img className="game-img" src={children.background_image} />
+            <span>
+                <Rating>{children.rating}</Rating>
+                <h4 className="noblock game-name">{children.name}</h4>
+                <span
+                    onClick={() =>
+                        dispatch(addToBasket({ ...children, id: Date.now() }))
+                    }
+                    className="right cart noblock"
+                >
+                    <img className="noblock cart" src={basket} />
                 </span>
-            </div>
-        </span>
+            </span>
+        </Link>
     );
-});
+};

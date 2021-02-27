@@ -33,21 +33,32 @@ footer {
 .left {
     float: left;
 }
+.games {
+    display: flexbox;
+}
 .game {
-    margin: 5px;
-    width: 500px;
-    height: 320px;
+    margin: 4px;
+    width: 32%;
+    height: 250px;
     display: inline-block;
 }
+.game-name {
+    max-width: 4fr;
+    overflow-x: hidden;
+}
+.game * {
+    margin: 6px;
+}
+a.game {
+    color: black;
+}
 .game-img {
-    margin: 8px;
-    width: 400px;
-    height: 230px;
+    width: 69%;
+    height: 60%;
 }
 .cart {
-    margin-bottom: 25px;
-    margin-right: 25px;
     cursor: pointer;
+    width: 1fr;
 }
 .game h3:hover {
     color: red;
@@ -85,4 +96,7 @@ footer {
 }
 .basket {
     margin: auto;
+}
+.loader {
+    position: absolute;
 }

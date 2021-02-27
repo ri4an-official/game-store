@@ -1,7 +1,7 @@
 import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
-    name: "gamesStore",
+    name: "game-store",
     initialState: {
         games: [] as Game[],
         isFetch: true,

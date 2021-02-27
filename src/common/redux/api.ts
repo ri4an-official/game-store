@@ -9,13 +9,12 @@ const games = axios.create({
     },
 });
 
-export const getCountGames = () =>
-    games.get("").then((r) => r.data.count as number);
+export const getCountGames = async () =>
+    (await games.get("")).data.count as number;
 
-export const getGames = (page = 1) =>
-    axios
-        .get(`https://api.rawg.io/api/games?page=${page}`)
-        .then((r) => r.data.results as Game[]);
+export const getGames = async (page = 1) =>
+    (await axios.get(`https://api.rawg.io/api/games?page=${page}`)).data
+        .results as Game[];
 
-export const getGameDetails = (name: string) =>
-    games.get(`/${name}`).then((r) => r.data as Game);
+export const getGameDetails = async (name: string) =>
+    (await games.get(`/${name}`)).data as Game;
