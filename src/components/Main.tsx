@@ -44,7 +44,7 @@ export const Main = compose(withRouter)(({ match }) => {
                 }
             />
             <p />
-            <Games>{games.filter((g) => g.name.length < 25)}</Games>
+            <Games>{games)}</Games>
             {games.length ? (
                 <Pagination
                     totalItemsCount={total}
