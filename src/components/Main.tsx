@@ -11,6 +11,8 @@ import { State } from "../common/redux/redux-reducer";
 import { GameDetails } from "./games/GameDetails";
 import { Games } from "./games/Games";
 import Pagination from "react-js-pagination";
+import { Search } from "./Search";
+import { NotFound } from "./NotFound";
 
 export const Main = compose(withRouter)(({ match }) => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
@@ -30,33 +32,39 @@ export const Main = compose(withRouter)(({ match }) => {
         dispatch(setFetch(true));
         dispatch(setGames(await getGames(currentPage)));
     }, [currentPage]);
-    return (
+    return isFetch ? (
+        <Loader />
+    ) : slug ? (
+        <GameDetails>{selectedGame}</GameDetails>
+    ) : (
         <>
-            {isFetch ? (
-                <Loader />
-            ) : slug ? (
-                <GameDetails>{selectedGame}</GameDetails>
+            <Search
+                onSubmit={({ gameName }: any) =>
+                    dispatch(setGames(games.filter((g) => g.name === gameName)))
+                }
+            />
+            <p />
+            <Games>{games.filter((g) => g.name.length < 25)}</Games>
+            {games.length ? (
+                <Pagination
+                    totalItemsCount={total}
+                    onChange={setCurrentPage}
+                    activePage={currentPage}
+                    itemsCountPerPage={21}
+                    activeClass="active"
+                    activeLinkClass="link"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    prevPageText="<|"
+                    nextPageText="|>"
+                    firstPageText="<<|"
+                    lastPageText="|>>"
+                    hideFirstLastPages
+                    innerClass="pagination pagination-lg justify-content-center"
+                    disabledClass="disabled"
+                />
             ) : (
-                <>
-                    <Games>{games}</Games>
-                    <Pagination
-                        totalItemsCount={total}
-                        onChange={setCurrentPage}
-                        activePage={currentPage}
-                        itemsCountPerPage={21}
-                        activeClass="active"
-                        activeLinkClass="link"
-                        itemClass="page-item"
-                        linkClass="page-link"
-                        prevPageText="<|"
-                        nextPageText="|>"
-                        firstPageText="<<|"
-                        lastPageText="|>>"
-                        hideFirstLastPages
-                        innerClass="pagination pagination-lg justify-content-center"
-                        disabledClass="disabled"
-                    />
-                </>
+                <NotFound />
             )}
         </>
     );
