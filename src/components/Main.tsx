@@ -39,9 +39,16 @@ export const Main = compose(withRouter)(({ match }) => {
     ) : (
         <>
             <Search
-                onSubmit={({ gameName }: any) =>
-                    dispatch(setGames(games.filter((g) => g.name === gameName)))
-                }
+                onSubmit={({ gameName }) => {
+                    dispatch(
+                        setGames(
+                            games.filter((g) =>
+                                g.name.toLowerCase().includes(gameName)
+                            )
+                        )
+                    );
+                    console.log(gameName);
+                }}
             />
             <p />
             <Games>{games}</Games>
@@ -59,7 +66,6 @@ export const Main = compose(withRouter)(({ match }) => {
                     nextPageText="|>"
                     firstPageText="<<|"
                     lastPageText="|>>"
-                    hideFirstLastPages
                     innerClass="pagination pagination-lg justify-content-center"
                     disabledClass="disabled"
                 />

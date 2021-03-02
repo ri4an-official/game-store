@@ -12,7 +12,7 @@ export const CreateGame = compose(withRouter)(({ history }) => {
         <>
             <Title>Add game</Title>
             <AddGameForm
-                onSubmit={(game: Game | any) => {
+                onSubmit={(game: any) => {
                     dispatch(
                         add({
                             ...game,

@@ -44,7 +44,6 @@ footer {
 }
 .game-name {
     max-width: 4fr;
-    overflow-x: hidden;
 }
 .game * {
     margin: 6px;

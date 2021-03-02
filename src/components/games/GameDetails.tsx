@@ -7,7 +7,11 @@ export const GameDetails = ({ children }: { children: Game }) =>
             <img src={children.background_image} width="550" height="320" />
             <h1 className="noblock">{children.name}</h1>
             <AddToBasket>{children}</AddToBasket>
-            <div dangerouslySetInnerHTML={{ __html: children.description }} />
+            <p/>
+            <text
+                style={{ fontFamily: "Arial" }}
+                dangerouslySetInnerHTML={{ __html: children.description }}
+            />
         </div>
     ) : (
         <NotFound />
