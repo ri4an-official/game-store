@@ -11,10 +11,10 @@ export const App = () => (
         <Menu />
         <div className="app-content container">
             <Switch>
+                <Route exact path="/" component={Main} />
                 <Route exact path="/games/:gameSlug?" component={Main} />
                 <Route path="/basket" component={Basket} />
                 <Route path="/login" component={Login} />
-                <Redirect from="/" to="/games" />
                 <Route component={NotFound} />
             </Switch>
         </div>
