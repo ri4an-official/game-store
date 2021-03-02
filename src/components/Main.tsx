@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { compose } from "redux";
-import useAsyncEffect from "use-async-effect";
 import { Loader } from "../common/loader/Loader";
 import { Game } from "../common/models/Game";
 import { getCountGames, getGameDetails, getGames } from "../common/redux/api";
@@ -10,9 +9,10 @@ import { setFetch, setGames } from "../common/redux/games-reducer";
 import { State } from "../common/redux/redux-reducer";
 import { GameDetails } from "./games/GameDetails";
 import { Games } from "./games/Games";
-import Pagination from "react-js-pagination";
 import { Search } from "./Search";
 import { NotFound } from "./NotFound";
+import useAsyncEffect from "use-async-effect";
+import Pagination from "react-js-pagination";
 
 export const Main = compose(withRouter)(({ match }) => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
