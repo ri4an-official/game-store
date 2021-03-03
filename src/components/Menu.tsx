@@ -1,53 +1,49 @@
-import { Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { State } from "../common/redux/redux-reducer";
 import basket from "./../common/images/free-icon-shopping-4220891.svg";
 import profile from "./../common/images/profile.svg";
 export const Menu = () => {
-    const { auth, username } = useSelector((state: State) => state.login);
-    //prettier-ignore
-    const countGamesInBasket = useSelector((state: State) => state.basket.games.length);
+    const { auth, user } = useSelector((state: State) => state.login);
+    const countGamesInBasket = useSelector(
+        (state: State) => state.basket.games.length
+    );
     return (
         <>
-            <Navbar expand="lg" sticky="top" className="container">
-                <Link data-toggle="tab" className="navbar-brand" to="/">
-                    Game store
-                </Link>
+            <Navbar expand="lg" className="container navbar">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <ul className="nav nav-tabs">
-                        <li className="nav-item">
-                            <Link
-                                data-toggle="tab"
-                                className="nav-link"
-                                to="/basket"
-                            >
-                                <img src={basket} /> Basket{" "}
+                    <Nav className="nav-tabs" role="tablist">
+                        <Nav.Item>
+                            <Link className="navbar-brand" to="/">
+                                Game store
+                            </Link>
+                        </Nav.Item>
+
+                        <Nav.Item>
+                            <Link className="nav-link" to="/basket">
+                                <img src={basket} /> <span>Basket </span>
                                 <span className="count">
                                     {countGamesInBasket || null}
                                 </span>
                             </Link>
-                        </li>
-                        <li className="nav-item">
+                        </Nav.Item>
+                        <Nav.Item>
                             {!auth ? (
-                                <Link
-                                    data-toggle="tab"
-                                    className="nav-link"
-                                    to="/login"
-                                >
+                                <Link className="nav-link" to="/login">
                                     Sign In
                                 </Link>
                             ) : (
-                                <div className="nav-item right">
+                                <Link to="/profile" className="nav-link right">
                                     <img src={profile} />
-                                    <b>{username}</b>
-                                </div>
+                                    <b>{user.name}</b>
+                                </Link>
                             )}
-                        </li>
+                        </Nav.Item>
 
                         {/* <Nav.Link href="/register">Register</Nav.Link> */}
-                    </ul>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </>

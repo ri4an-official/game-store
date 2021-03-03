@@ -21,7 +21,6 @@ footer {
 }
 .count {
     color: red;
-    margin-top: 10px;
 }
 .app-content {
     margin: 60px;
@@ -46,7 +45,10 @@ footer {
     max-width: 4fr;
 }
 .game * {
-    margin: 6px;
+    margin: 8px;
+}
+.game {
+    border-radius: 10%;
 }
 a.game {
     color: black;
@@ -54,6 +56,7 @@ a.game {
 .game-img {
     width: 69%;
     height: 60%;
+    border-radius: 10%;
 }
 .cart {
     cursor: pointer;
@@ -70,16 +73,13 @@ a.game {
     display: inline-block;
 }
 .block-left {
-    width: 50%;
-    height: 1000px;
-    overflow: auto;
+    width: 69%;
+    height: 60%;
     float: left;
 }
 .block-right {
-    padding-left: 20px;
-    width: 50%;
-    height: 1000px;
-    overflow: auto;
+    width: 31%;
+    height: 100%;
 }
 .red {
     color: red;

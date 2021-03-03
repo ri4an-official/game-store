@@ -16,8 +16,8 @@ import Pagination from "react-js-pagination";
 
 export const Main = compose(withRouter)(({ match }) => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
-    const slug = match.params.gameSlug as string; // название игры в адресной строке
     const dispatch = useDispatch();
+    const slug = match.params.gameSlug as string; // название игры в адресной строке
     const [selectedGame, setSelectedGame] = useState({} as Game);
     const [currentPage, setCurrentPage] = useState(1);
     const [total, setTotal] = useState(0);
@@ -40,6 +40,7 @@ export const Main = compose(withRouter)(({ match }) => {
         <>
             <Search
                 onSubmit={({ gameName }) => {
+                    dispatch(setFetch(true));
                     dispatch(
                         setGames(
                             games.filter((g) =>
@@ -47,11 +48,12 @@ export const Main = compose(withRouter)(({ match }) => {
                             )
                         )
                     );
-                    console.log(gameName);
+                    // console.log(gameName);
                 }}
             />
             <p />
             <Games>{games}</Games>
+            <p />
             {games.length ? (
                 <Pagination
                     totalItemsCount={total}
