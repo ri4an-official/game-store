@@ -32,6 +32,9 @@ footer {
 .left {
     float: left;
 }
+.top {
+    float: top;
+}
 .games {
     display: flexbox;
 }

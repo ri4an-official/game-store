@@ -1,5 +1,5 @@
 export const Money = ({
-    children,
+    children = 0,
     rub = true,
     tenge = false,
     dollar = false,
@@ -10,15 +10,12 @@ export const Money = ({
     tenge?: boolean;
     rub?: boolean;
     dollar?: boolean;
-}) =>
-    children ? (
-        <strong className="noblock right">
-            {children}{" "}
-            {(rub && " RUB.") ||
-                (dollar && "$") ||
-                (tenge && " TEN.") ||
-                type + "."}
-        </strong>
-    ) : (
-        <></>
-    );
+}) => (
+    <strong className="top noblock right">
+        {children}{" "}
+        {(rub && " RUB.") ||
+            (dollar && "$") ||
+            (tenge && " TEN.") ||
+            type + "."}
+    </strong>
+);

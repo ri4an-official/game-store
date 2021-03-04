@@ -10,13 +10,13 @@ export const GameItem = ({ children }: { children: Game }) => {
     const n = children.name;
     return (
         <Link to={`/games/${children.slug}`} className="game noblock shadow">
+            <Rating>{children.rating}</Rating>
             <img className="game-img" src={children.background_image} />
+            <Money>{children.price}</Money>
             <span>
                 <h3 className="noblock game-name">
                     {n.length <= 16 ? n : n.substring(0, 16) + "..."}
                 </h3>
-                <Rating>{children.rating}</Rating>
-                <Money>{children.price}</Money>
                 <span
                     onClick={() =>
                         dispatch(addToBasket({ ...children, id: Date.now() }))
