@@ -4,11 +4,11 @@ import { Input } from "../common/controls";
 
 export const Search = reduxForm({
     form: "search",
-    initialValues: { gameName: "" },
+    initialValues: { name: "" },
 })((props) => (
     <Form onSubmit={props.handleSubmit}>
         <InputGroup>
-            <Field name="gameName" component={Input} />
+            <Field name="name" component={Input} />
             <Button type="submit" variant="secondary">
                 Search
             </Button>

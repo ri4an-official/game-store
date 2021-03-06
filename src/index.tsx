@@ -13,10 +13,6 @@ ReactDOM.render(
                 <App />
             </BrowserRouter>
         </Provider>
-        <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-        <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-        <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </React.StrictMode>,
     document.getElementById("root")
 );

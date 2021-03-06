@@ -12,8 +12,7 @@ export const AddToBasket = ({ children }: { children: Game }) => {
             }
             className="right cart noblock"
         >
-            <h4 className="noblock">+</h4>
-            <img className="noblock" src={basket} />
+            <img width="100%" height="100%" className="noblock" src={basket} />
         </span>
     );
 };

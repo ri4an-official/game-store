@@ -4,8 +4,12 @@ import { withRouter } from "react-router";
 import { compose } from "redux";
 import { Loader } from "../common/loader/Loader";
 import { Game } from "../common/models/Game";
-import { getCountGames, getGameDetails, getGames } from "../common/redux/api";
-import { setFetch, setGames } from "../common/redux/games-reducer";
+import { getCountGames } from "../common/redux/api";
+import {
+    selectGame,
+    setGamesOnPage,
+    search,
+} from "../common/redux/games-reducer";
 import { State } from "../common/redux/redux-reducer";
 import { GameDetails } from "./games/GameDetails";
 import { Games } from "./games/Games";
@@ -21,36 +25,16 @@ export const Main = compose(withRouter)(({ match }) => {
     const [selectedGame, setSelectedGame] = useState({} as Game);
     const [currentPage, setCurrentPage] = useState(1);
     const [total, setTotal] = useState(0);
-
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
-    useAsyncEffect(async () => {
-        dispatch(setFetch(true));
-        setSelectedGame(await getGameDetails(slug));
-        dispatch(setFetch(false));
-    }, [slug]);
-    useAsyncEffect(async () => {
-        dispatch(setFetch(true));
-        dispatch(setGames(await getGames(currentPage)));
-    }, [currentPage]);
+    useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
+    useAsyncEffect(() => dispatch(selectGame(setSelectedGame, slug)), [slug]);
     return isFetch ? (
         <Loader />
     ) : slug ? (
         <GameDetails>{selectedGame}</GameDetails>
     ) : (
         <>
-            <Search
-                onSubmit={({ gameName }) => {
-                    dispatch(setFetch(true));
-                    dispatch(
-                        setGames(
-                            games.filter((g) =>
-                                g.name.toLowerCase().includes(gameName)
-                            )
-                        )
-                    );
-                    // console.log(gameName);
-                }}
-            />
+            <Search onSubmit={async ({ name }) => dispatch(search(name))} />
             <p />
             <Games>{games}</Games>
             <p />

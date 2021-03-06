@@ -1,21 +1,9 @@
-export const Money = ({
-    children = 0,
-    rub = true,
-    tenge = false,
-    dollar = false,
-    type = "RUB",
-}: {
-    children: number;
-    type?: string;
-    tenge?: boolean;
-    rub?: boolean;
-    dollar?: boolean;
-}) => (
-    <strong className="top noblock right">
+export const Money = ({ children = 0, className = "", type = "RUB" }) => (
+    <strong className={className}>
         {children}{" "}
-        {(rub && " RUB.") ||
-            (dollar && "$") ||
-            (tenge && " TEN.") ||
+        {(type === "RUB" && " RUB.") ||
+            (type === "USD" && "$") ||
+            (type === "TEN" && " TEN.") ||
             type + "."}
     </strong>
 );

@@ -1,18 +1,13 @@
+import { Dispatch } from "react";
 import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
+import { buy } from "./login-form";
 
 const slice = createSlice({
     name: "basket",
     initialState: {
-        games: [
-            { name: "CS:GO", price: 2000 },
-            { name: "Overwatch", price: 100 },
-            { name: "Overwatch", price: 100 },
-            { name: "Overwatch", price: 100 },
-            { name: "Overwatch", price: 100 },
-            { name: "Overwatch", price: 100 },
-        ] as Game[],
+        games: [] as Game[],
     },
     reducers: {
         addToBasket({ games }, { payload }: { payload: Game }) {
@@ -28,3 +23,7 @@ const slice = createSlice({
 });
 export default slice.reducer;
 export const { addToBasket, remove, dropGames } = slice.actions;
+export const buyGames = (games: Game[]) => async (dispatch: Dispatch<any>) => {
+    dispatch(buy(games));
+    dispatch(dropGames());
+};

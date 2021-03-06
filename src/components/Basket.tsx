@@ -2,8 +2,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { compose } from "redux";
 import { withRedirect } from "../common/hocs/withRedirect";
-import { remove, dropGames } from "../common/redux/basket-reducer";
-import { buy } from "../common/redux/login-form";
+import { remove, buyGames } from "../common/redux/basket-reducer";
 import { State } from "../common/redux/redux-reducer";
 import { Title } from "../common/Title";
 import bin from "./../common/images/free-icon-dustbin-4205487.svg";
@@ -15,7 +14,7 @@ export const Basket = compose(withRedirect)(() => {
     return (
         <div className="container basket">
             <Title noblock>Basket</Title>
-            <h5 className="noblock green" style={{ float: "right" }}>
+            <h5 className="noblock right green">
                 <Money>{sum}</Money>
             </h5>
             <div>
@@ -41,10 +40,7 @@ export const Basket = compose(withRedirect)(() => {
             <Button
                 className="right"
                 variant="success"
-                onClick={() => {
-                    dispatch(buy(games));
-                    dispatch(dropGames());
-                }}
+                onClick={() => dispatch(buyGames(games))}
             >
                 + Buy
             </Button>
