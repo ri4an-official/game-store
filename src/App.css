@@ -63,8 +63,9 @@ a.game {
 }
 .cart {
     cursor: pointer;
-    width: 15%;
-    height: 15%;
+    width: 40px;
+    height: 40px;
+    margin-right: 25px;
 }
 .game h3:hover {
     color: red;
@@ -97,10 +98,12 @@ a.game {
 .center {
     text-align: center;
 }
-.img{
+.img {
     border-radius: 10%;
-    width: 100%;
+    width: 50%;
     height: 30%;
+    float: left;
+    margin: 13px 13px 13px 0;
 }
 .basket {
     margin: auto;

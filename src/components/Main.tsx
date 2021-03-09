@@ -6,7 +6,7 @@ import { Loader } from "../common/loader/Loader";
 import { Game } from "../common/models/Game";
 import { getCountGames } from "../common/redux/api";
 import {
-    selectGame,
+    selectGameOnPage as selectGame,
     setGamesOnPage,
     search,
 } from "../common/redux/games-reducer";

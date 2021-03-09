@@ -10,7 +10,7 @@ export const AddToBasket = ({ children }: { children: Game }) => {
             onClick={() =>
                 dispatch(addToBasket({ ...children, id: Date.now() }))
             }
-            className="right cart noblock"
+            className="right cart"
         >
             <img width="100%" height="100%" className="noblock" src={basket} />
         </span>

@@ -29,7 +29,7 @@ export const setGamesOnPage = (currentPage: number) => async (
     dispatch(setGames(await getGames(currentPage)));
     dispatch(setFetch(false));
 };
-export const selectGame = (
+export const selectGameOnPage = (
     setSelectedGame: (game: Game) => void,
     slug: string
 ) => async (dispatch: Dispatch<any>) => {
