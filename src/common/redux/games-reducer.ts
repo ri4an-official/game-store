@@ -15,7 +15,6 @@ const slice = createSlice({
                 ...g,
                 price: ceil((g.rating - 1) * 150),
             }));
-            state.isFetch = false;
         },
         setFetch(state, { payload }: { payload: boolean }) {
             state.isFetch = payload;
@@ -28,6 +27,7 @@ export const setGamesOnPage = (currentPage: number) => async (
 ) => {
     dispatch(setFetch(true));
     dispatch(setGames(await getGames(currentPage)));
+    dispatch(setFetch(false));
 };
 export const selectGame = (
     setSelectedGame: (game: Game) => void,
