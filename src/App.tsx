@@ -16,7 +16,7 @@ export const App = () => (
             <Switch>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/games" component={Main} />
-                <Route exact path="/games/:gameSlug?" component={GameDetails} />
+                <Route path="/games/:gameSlug?" component={GameDetails} />
                 <Route path="/basket" component={Basket} />
                 <Route path="/login" component={Login} />
                 <Route component={NotFound} />

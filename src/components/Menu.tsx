@@ -20,7 +20,6 @@ export const Menu = () => {
                                 Game store
                             </Link>
                         </Nav.Item>
-
                         <Nav.Item>
                             <Link className="nav-link" to="/basket">
                                 <img src={basket} /> <span>Basket </span>
@@ -35,14 +34,12 @@ export const Menu = () => {
                                     Sign In
                                 </Link>
                             ) : (
-                                <Link to="/profile" className="nav-link right">
+                                <Link to="/profile" className="nav-link">
                                     <img src={profile} />
                                     <b>{user.name}</b>
                                 </Link>
                             )}
                         </Nav.Item>
-
-                        {/* <Nav.Link href="/register">Register</Nav.Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
