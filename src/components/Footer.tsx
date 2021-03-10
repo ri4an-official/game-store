@@ -6,9 +6,10 @@ export const Footer = () => (
     <footer>
         Game store by <b>Vadim Guber</b>
         <div className="right">
+            <b>Contacts</b>
             <div className="contacts">
                 <a className="card-link" href="https://vk.com/ri4an">
-                    <img src={vk} />{" "} Vadim Guber
+                    <img src={vk} /> Vadim Guber
                 </a>
             </div>
             <div className="contacts">
@@ -16,18 +17,19 @@ export const Footer = () => (
                     className="card-link"
                     href="https://github.com/ri4an-official"
                 >
-                    <img src={gh} />{" "} ri4an-official
+                    <img src={gh} /> ri4an-official
                 </a>
             </div>
             <div className="contacts">
                 <a className="card-link" href="tel:+77471833792">
-                    <img src={wtsp} />{" "} +7 747 183 37 92
+                    <img src={wtsp} /> +7 747 183 37 92
                 </a>
             </div>
         </div>
         <br />
         <small>
-            <span dangerouslySetInnerHTML={{ __html: "&copy;" }} /> All rights reserved, 2020 - {new Date().getFullYear()}
+            <span dangerouslySetInnerHTML={{ __html: "&copy;" }} /> All rights
+            reserved, 2020 - {new Date().getFullYear()}
         </small>
     </footer>
 );

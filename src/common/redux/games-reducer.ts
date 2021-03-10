@@ -13,7 +13,7 @@ const slice = createSlice({
         setGames(state, { payload }: { payload: Game[] }) {
             state.games = payload.map((g) => ({
                 ...g,
-                price: ceil((g.rating - 1) * 150),
+                price: ceil((g.rating + 1) * 80),
             }));
         },
         setFetch(state, { payload }: { payload: boolean }) {
@@ -29,14 +29,7 @@ export const setGamesOnPage = (currentPage: number) => async (
     dispatch(setGames(await getGames(currentPage)));
     dispatch(setFetch(false));
 };
-export const selectGameOnPage = (
-    setSelectedGame: (game: Game) => void,
-    slug: string
-) => async (dispatch: Dispatch<any>) => {
-    dispatch(setFetch(true));
-    setSelectedGame(await getGameDetails(slug));
-    dispatch(setFetch(false));
-};
+
 export const search = (name: string) => async (dispatch: Dispatch<any>) => {
     dispatch(setFetch(true));
     dispatch(setGames(await searchGame(name)));
@@ -45,3 +38,11 @@ export const search = (name: string) => async (dispatch: Dispatch<any>) => {
 
 export default slice.reducer;
 export const { setGames, setFetch } = slice.actions;
+// export const selectGameOnPage = (
+//     setSelectedGame: (game: Game) => void,
+//     slug: string
+// ) => async (dispatch: Dispatch<any>) => {
+//     dispatch(setFetch(true));
+//     setSelectedGame(await getGameDetails(slug));
+//     dispatch(setFetch(false));
+// };

@@ -17,7 +17,7 @@ export const Basket = compose(withRedirect)(() => {
             <h5 className="noblock right green">
                 <Money>{user.sum}</Money>
             </h5>
-            {error && <Alert>{error}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>}
             {!games.length ? (
                 <h4 className="center red">Basket is empty</h4>
             ) : (

@@ -36,6 +36,7 @@ const slice = createSlice({
             let sum = payload.map((g) => g.price).reduce((pv, cv) => pv + cv);
             if (user.sum >= sum) {
                 payload.forEach((g) => user.games.push(g));
+                payload = [];
                 user.sum = user.sum - sum;
             } else error = "Sum is not enough";
         },

@@ -8,11 +8,8 @@ const games = axios.create({
 export const getCountGames = async () =>
     (await games.get("games")).data.count as number;
 
-export const getGames = async (page: number) => {
-    let a = (await games.get(`games?page=${page}`)).data.results as Game[];
-    console.log(a);
-    return a;
-};
+export const getGames = async (page: number) =>
+    (await games.get(`games?page=${page}`)).data.results as Game[];
 
 export const getGameDetails = async (name: string) =>
     (await games.get(`games/${name}`)).data as Game;
