@@ -9,9 +9,7 @@ import { Main } from "./components/Main";
 import { GameDetails } from "./components/games/GameDetails";
 export const App = () => (
     <div className="app">
-        <section>
-            <Menu />
-        </section>
+        <Menu />
         <section className="app-content container">
             <Switch>
                 <Route exact path="/" component={Main} />
@@ -22,8 +20,6 @@ export const App = () => (
                 <Route component={NotFound} />
             </Switch>
         </section>
-        <section>
-            <Footer />
-        </section>
+        <Footer />
     </div>
 );
