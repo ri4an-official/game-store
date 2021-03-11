@@ -4,7 +4,7 @@ import { NotFound } from "../../components/NotFound";
 import loader from "./../../common/images/Dual Ring-0.8s-114px.svg";
 export const Loader = () => {
     const [timeIsUp, setTimeIsUp] = useState(false);
-    useAsyncEffect(() => setTimeout(() => setTimeIsUp(true), 5000), []);
+    useAsyncEffect(() => setTimeout(() => setTimeIsUp(true), 8000), []);
     return timeIsUp ? (
         <NotFound />
     ) : (

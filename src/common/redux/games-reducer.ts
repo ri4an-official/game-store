@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ceil } from "lodash";
 import { Dispatch } from "react";
 import { getGameDetails, getGames, searchGame } from "./api";
+import { buy } from "./login-form";
 const slice = createSlice({
     name: "game-store",
     initialState: {

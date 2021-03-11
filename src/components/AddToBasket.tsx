@@ -1,18 +1,22 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Game } from "../common/models/Game";
 import { addToBasket } from "../common/redux/basket-reducer";
 import basket from "../common/images/add-to-cart.svg";
-
+import { State } from "../common/redux/redux-reducer";
 export const AddToBasket = ({ children }: { children: Game }) => {
     const dispatch = useDispatch();
-    return (
+    const myGames = useSelector((state: State) => state.login.user.games);
+    
+    return !children.isBuy ? (
         <span
-            onClick={() =>
-                dispatch(addToBasket({ ...children, id: Date.now() })) //!! отсутствует свойство price
+            onClick={
+                () => dispatch(addToBasket({ ...children, id: Date.now() })) //!! отсутствует свойство price
             }
             className="right cart"
         >
             <img width="100%" height="100%" className="noblock" src={basket} />
         </span>
+    ) : (
+        <></>
     );
 };
