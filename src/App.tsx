@@ -7,6 +7,7 @@ import { Basket } from "./components/Basket";
 import { NotFound } from "./components/NotFound";
 import { Main } from "./components/Main";
 import { GameDetails } from "./components/games/GameDetails";
+import { Profile } from "./Profile";
 export const App = () => (
     <div className="app">
         <Menu />
@@ -16,6 +17,7 @@ export const App = () => (
                 <Route exact path="/games" component={Main} />
                 <Route path="/games/:gameSlug?" component={GameDetails} />
                 <Route path="/basket" component={Basket} />
+                <Route path="/profile" component={Profile} />
                 <Route path="/login" component={Login} />
                 <Route component={NotFound} />
             </Switch>

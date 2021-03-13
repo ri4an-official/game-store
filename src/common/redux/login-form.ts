@@ -14,7 +14,10 @@ const slice = createSlice({
             name: "Vadim",
             password: "1",
             sum: 10000,
-            games: [] as Game[],
+            games: [
+                { name: "Gta-5", slug: "grand-theft-auto-v", isBuy: true },
+                { name: "Cyberpunk 2077", slug: "cyberpunk-2077", isBuy: true },
+            ] as Game[],
         } as User,
         error: "",
     },
@@ -35,7 +38,7 @@ const slice = createSlice({
         buy({ user, error }, { payload }: { payload: Game[] }) {
             let sum = payload.map((g) => g.price).reduce((pv, cv) => pv + cv);
             if (user.sum >= sum) {
-                payload.forEach((g) => user.games.push(g));
+                payload.forEach((g) => user.games.push({ ...g, isBuy: true }));
                 payload = [];
                 user.sum = user.sum - sum;
             } else error = "Sum is not enough";

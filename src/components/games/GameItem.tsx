@@ -1,6 +1,5 @@
 import { Game } from "../../common/models/Game";
 import { Link } from "react-router-dom";
-
 import { Money } from "../Money";
 import { AddToBasket } from "../AddToBasket";
 import { Rating } from "../Rating";
@@ -17,11 +16,8 @@ export const GameItem = ({ children }: { children: Game }) => (
         <AddToBasket>{children}</AddToBasket>
     </Link>
 );
-const lnght = 13;
-const Name = ({ children }: { children: string }) => (
+export const Name = ({ children }: { children: string }) => (
     <h3 className="noblock game-name">
-        {children.length <= lnght
-            ? children
-            : children.substring(0, lnght) + "..."}
+        {children.length <= 13 ? children : children.substring(0, 13) + "..."}
     </h3>
 );

@@ -6,4 +6,5 @@ export type Game = {
     background_image: string;
     slug: string;
     description: string;
+    isBuy?: boolean;
 };

@@ -3,10 +3,9 @@ import axios from "axios";
 
 const games = axios.create({
     baseURL: "https://api.rawg.io/api", // если перестало работать, получи api-key
-    // headers: {
-    //     "x-rapidapi-key": "37437d4ec5msh0b5b355674a5af8p1f7993jsndb1173addba0",
-    //     "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-    // },
+    headers: {
+        // "x-rapidapi-key": "77ff5a3708d24cb0b74ec0111325ed6a",
+    },
 });
 
 export const getCountGames = async () =>

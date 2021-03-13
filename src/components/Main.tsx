@@ -25,7 +25,7 @@ export const Main = () => {
             <p />
             <Games>{games}</Games>
             <p />
-            {games.length ? (
+            {games.length && (
                 <Pagination
                     totalItemsCount={total}
                     onChange={setCurrentPage}
@@ -38,12 +38,11 @@ export const Main = () => {
                     prevPageText="<|"
                     nextPageText="|>"
                     firstPageText="<<|"
+                    hideFirstLastPages
                     lastPageText="|>>"
                     innerClass="pagination pagination-lg justify-content-center"
                     disabledClass="disabled"
                 />
-            ) : (
-                <Loader />
             )}
         </>
     );
