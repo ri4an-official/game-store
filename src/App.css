@@ -115,3 +115,11 @@ a.game {
 .game-description {
     min-height: 500px;
 }
+@media screen and (max-width: 770px) {
+    .game {
+        margin: 4px;
+        width: 80%;
+        height: 250px;
+        display: inline-block;
+    }
+}
