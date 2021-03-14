@@ -35,12 +35,12 @@ const slice = createSlice({
         buy({ user, error }, { payload }: { payload: Game[] }) {
             let sum = payload.map((g) => g.price).reduce((pv, cv) => pv + cv);
             if (user.sum >= sum) {
-                payload.forEach((g) =>
-                    user.games.push({
+                user.games.push(
+                    ...payload.map((g) => ({
                         ...g,
                         isBuy: true,
                         key: generateKey(),
-                    })
+                    }))
                 );
                 payload = [];
                 user.sum = user.sum - sum;
