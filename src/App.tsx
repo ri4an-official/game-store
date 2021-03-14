@@ -11,7 +11,7 @@ import { Profile } from "./Profile";
 export const App = () => (
     <div className="app">
         <Menu />
-        <section className="app-content container">
+        <main className="app-content container">
             <Switch>
                 <Route exact path="/" component={Main} />
                 <Route exact path="/games" component={Main} />
@@ -21,7 +21,7 @@ export const App = () => (
                 <Route path="/login" component={Login} />
                 <Route component={NotFound} />
             </Switch>
-        </section>
+        </main>
         <Footer />
     </div>
 );

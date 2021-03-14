@@ -7,4 +7,5 @@ export type Game = {
     slug: string;
     description: string;
     isBuy?: boolean;
+    key: string;
 };

@@ -6,6 +6,11 @@ import { Rating } from "../Rating";
 export const GameItem = ({ children }: { children: Game }) => (
     <Link to={`/games/${children.slug}`} className="game noblock shadow">
         <div className="block-left">
+            {children.key && (
+                <small className="center">
+                    {children.key}
+                </small>
+            )}
             <img className="game-img" src={children.background_image} />
         </div>
         <div className="block-right">
