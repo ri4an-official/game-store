@@ -1,6 +1,6 @@
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../common/controls";
+import { Input } from "../common/utils/controls";
 
 export const Search = reduxForm({
     form: "search",
