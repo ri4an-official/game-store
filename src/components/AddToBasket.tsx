@@ -6,11 +6,11 @@ import { State } from "../common/redux/redux-reducer";
 export const AddToBasket = ({ children }: { children: Game }) => {
     const dispatch = useDispatch();
     const myGames = useSelector((state: State) => state.login.user.games);
-    
-    return !children.isBuy ? (
+
+    return !children.isBuy ? ( //! зарефакторь, вынеси это за эту компоненту
         <span
             onClick={
-                () => dispatch(addToBasket({ ...children, id: Date.now() })) //!! отсутствует свойство price
+                () => dispatch(addToBasket({ ...children, id: Date.now() })) //! отсутствует свойство price
             }
             className="right cart"
         >
