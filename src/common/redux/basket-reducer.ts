@@ -10,14 +10,14 @@ const slice = createSlice({
         games: [] as Game[],
     },
     reducers: {
-        addToBasket({ games }, { payload }: { payload: Game }) {
-            games.push(payload);
+        addToBasket(state, { payload }: { payload: Game }) {
+            state.games.push(payload);
         },
         dropGames(state) {
             state.games = [];
         },
         remove({ games }, { payload }: { payload: number }) {
-            games = _.remove(games, { id: payload });
+            games = games.filter((g) => g.id !== payload);
         },
     },
 });

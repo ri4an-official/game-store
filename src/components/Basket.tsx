@@ -23,12 +23,13 @@ export const Basket = withRedirect(() => {
                 <>
                     {games.map((g) => (
                         <>
-                            <div className="game-in-basket shadow">
-                                <h3 className="noblock item">{g.name}</h3>
+                            <div className="item shadow">
+                                <h3 className="noblock">{g.name}</h3>
                                 <Money>{g.price}</Money>
                                 <img
-                                    className="btn btn-danger item right"
+                                    className="btn btn-danger right"
                                     onClick={() => dispatch(remove(g.id))}
+                                    //! не удаляет из корзины
                                     src={bin}
                                 />
                             </div>

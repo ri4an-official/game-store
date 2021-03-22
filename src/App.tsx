@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.scss";
 import { Footer } from "./components/Footer";
 import { Menu } from "./components/Menu";
 import { Route, Switch } from "react-router";

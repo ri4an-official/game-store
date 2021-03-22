@@ -22,10 +22,12 @@ export const GameDetails = withRouter(({ match }) => {
         });
         dispatch(setFetch(false));
     }, [slug]);
-    return selectedGame.id ? (
+    return selectedGame.name ? (
         <>
             <span>
-                <AddToBasket>{selectedGame}</AddToBasket>
+                {!selectedGame.isBuy && (
+                    <AddToBasket>{selectedGame}</AddToBasket>
+                )}
             </span>
             <p>
                 <img

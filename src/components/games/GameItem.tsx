@@ -6,11 +6,6 @@ import { Rating } from "../Rating";
 export const GameItem = ({ children }: { children: Game }) => (
     <Link to={`/games/${children.slug}`} className="game noblock shadow">
         <div className="block-left">
-            {children.key && (
-                <small className="center">
-                    {children.key}
-                </small>
-            )}
             <img className="game-img" src={children.background_image} />
         </div>
         <div className="block-right">
@@ -18,7 +13,14 @@ export const GameItem = ({ children }: { children: Game }) => (
             <Rating>{children.rating}</Rating>
         </div>
         <Name>{children.name}</Name>
-        <AddToBasket>{children}</AddToBasket>
+        {!children.isBuy && <AddToBasket>{children}</AddToBasket>}
+        <div style={{ marginTop: "40px" }} className="center right">
+            {children.key && (
+                <>
+                    KEY: <small>{children.key}</small>
+                </>
+            )}
+        </div>
     </Link>
 );
 export const Name = ({ children }: { children: string }) => (

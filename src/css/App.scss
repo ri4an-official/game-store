@@ -1,0 +1,95 @@
+html {
+    &,
+    footer {
+        background-color: rgb(26, 24, 24);
+        color: white;
+    }
+    .app {
+        margin: auto;
+        .app-content {
+            margin: 60px;
+            min-height: 300px;
+            .games {
+                display: flexbox;
+                .game {
+                    margin: 12px;
+                    padding: 2px;
+                    width: 31%;
+                    height: 250px;
+                    display: inline-block;
+                    border-radius: 10%;
+                    color: black;
+                    max-width: 4fr;
+                    $block-height: 70%;
+                    .block-left {
+                        width: 55%;
+                        height: $block-height;
+                        float: left;
+                        img {
+                            width: 120%;
+                            height: 90%;
+                            border-radius: 10%;
+                        }
+                    }
+                    .block-right {
+                        width: 30%;
+                        height: $block-height;
+                        float: right;
+                    }
+                    &:hover {
+                        background-color: rgb(228, 225, 225);
+                        cursor: pointer;
+                    }
+                    h3:hover {
+                        color: red;
+                    }
+                    * {
+                        padding: 1px;
+                    }
+                    @media (max-width: 1000px) {
+                        & {
+                            width: 40%;
+                            height: 250px;
+                        }
+                    }
+                    @media (max-width: 800px) {
+                        & {
+                            width: 80%;
+                            height: 250px;
+                        }
+                    }
+                }
+            }
+            .cart {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                margin-right: 25px;
+            }
+            .img {
+                border-radius: 10%;
+                width: 50%;
+                height: 30%;
+                float: left;
+                margin: 13px 13px 13px 0;
+            }
+            .basket {
+                margin: auto;
+                .item {
+                    height: 100px;
+                    * {
+                        margin: 30px;
+                    }
+                }
+            }
+        }
+        @import "./default.scss";
+        footer {
+            padding: 10px;
+            max-height: 100px;
+            .contacts {
+                padding: 10px;
+            }
+        }
+    }
+}
