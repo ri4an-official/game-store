@@ -7,7 +7,8 @@ export const AddToBasket = ({ children }: { children: Game }) => {
     return (
         <span
             onClick={
-                () => dispatch(addToBasket({ ...children, id: Date.now() })) //! отсутствует свойство price
+                () => dispatch(addToBasket({ ...children, id: Date.now() }))
+                //! отсутствует свойство price
             }
             className="right cart"
         >

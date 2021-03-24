@@ -29,7 +29,6 @@ export const Basket = withRedirect(() => {
                                 <img
                                     className="btn btn-danger right"
                                     onClick={() => dispatch(remove(g.id))}
-                                    //! не удаляет из корзины
                                     src={bin}
                                 />
                             </div>

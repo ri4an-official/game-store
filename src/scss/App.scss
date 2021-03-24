@@ -13,7 +13,6 @@ html {
     }
     .app {
         margin: auto;
-        padding: auto; //? возможен баг
         .app-content {
             margin: 60px;
             min-width: 90%;
@@ -28,11 +27,7 @@ html {
                     display: inline-block;
                     border-radius: 10%;
                     color: black;
-<<<<<<< HEAD:src/css/App.scss
-                    max-width: 4fr;
 
-=======
->>>>>>> a845bbb1c202dc94299abec9bad281f21c40a04c:src/scss/App.scss
                     $block-height: 70%;
                     .block-left {
                         width: 60%;
@@ -62,21 +57,12 @@ html {
                     }
                     @media (max-width: 900px) {
                         & {
-<<<<<<< HEAD:src/css/App.scss
-                            width: 45%;
-                            font-size: 90%;
-=======
                             width: 40%;
->>>>>>> a845bbb1c202dc94299abec9bad281f21c40a04c:src/scss/App.scss
                         }
                     }
                     @media (max-width: 750px) {
                         & {
                             width: 80%;
-<<<<<<< HEAD:src/css/App.scss
-                            font-size: 80%;
-=======
->>>>>>> a845bbb1c202dc94299abec9bad281f21c40a04c:src/scss/App.scss
                         }
                     }
                 }
