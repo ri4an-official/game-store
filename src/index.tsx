@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
 import { App } from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import store from "./common/redux/redux-reducer";
 import { BrowserRouter } from "react-router-dom";
+import { render } from "react-dom";
 
-ReactDOM.render(
-    <React.StrictMode>
+render(
+    <StrictMode>
         <Provider store={store}>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
         </Provider>
-    </React.StrictMode>,
+    </StrictMode>,
     document.getElementById("root")
 );
 
