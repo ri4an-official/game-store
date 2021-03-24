@@ -8,6 +8,7 @@ html {
         margin: auto;
         .app-content {
             margin: 60px;
+            min-width: 90%;
             min-height: 300px;
             .games {
                 display: flexbox;
@@ -19,10 +20,9 @@ html {
                     display: inline-block;
                     border-radius: 10%;
                     color: black;
-                    max-width: 4fr;
                     $block-height: 70%;
                     .block-left {
-                        width: 55%;
+                        width: 60%;
                         height: $block-height;
                         float: left;
                         img {
@@ -32,9 +32,10 @@ html {
                         }
                     }
                     .block-right {
-                        width: 30%;
+                        width: 25%;
                         height: $block-height;
                         float: right;
+                        display: block;
                     }
                     &:hover {
                         background-color: rgb(228, 225, 225);
@@ -49,13 +50,11 @@ html {
                     @media (max-width: 1000px) {
                         & {
                             width: 40%;
-                            height: 250px;
                         }
                     }
                     @media (max-width: 800px) {
                         & {
                             width: 80%;
-                            height: 250px;
                         }
                     }
                 }
