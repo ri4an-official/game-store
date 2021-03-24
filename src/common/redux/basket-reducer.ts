@@ -17,13 +17,13 @@ const slice = createSlice({
             state.games = [];
         },
         remove({ games }, { payload }: { payload: number }) {
-            games = games.filter((g) => g.id !== payload);
+            games = _.remove(games, { id: payload });
         },
     },
 });
-export default slice.reducer;
-export const { addToBasket, remove, dropGames } = slice.actions;
 export const buyGames = (games: Game[]) => async (dispatch: Dispatch<any>) => {
     dispatch(buy(games));
     dispatch(dropGames());
 };
+export default slice.reducer;
+export const { addToBasket, remove, dropGames } = slice.actions;

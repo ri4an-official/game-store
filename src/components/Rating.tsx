@@ -4,5 +4,5 @@ const toColor = (rating: number): string => {
     return "red";
 };
 export const Rating = ({ children = 0, cn = "" }) => (
-    <b className={`${cn} ${toColor(children)}`}>{children} / 5</b>
+    <b className={`${cn} ${toColor(children)}`}>{children} / 5*</b>
 );

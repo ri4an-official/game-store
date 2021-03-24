@@ -25,9 +25,9 @@ export const GameDetails = withRouter(({ match }) => {
     return selectedGame.name ? (
         <>
             <span>
-                {!selectedGame.isBuy && (
-                    <AddToBasket>{selectedGame}</AddToBasket>
-                )}
+                {/* {!selectedGame.isBuy && ( */}
+                <AddToBasket>{selectedGame}</AddToBasket>
+                {/* )} */}
             </span>
             <p>
                 <img

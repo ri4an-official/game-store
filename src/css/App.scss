@@ -4,13 +4,21 @@ html {
         background-color: rgb(26, 24, 24);
         color: white;
     }
+    footer {
+        padding: 10px;
+        max-height: 100px;
+        .contacts {
+            padding: 10px;
+        }
+    }
     .app {
         margin: auto;
+        padding: auto; //? возможен баг
         .app-content {
             margin: 60px;
             min-height: 300px;
             .games {
-                display: flexbox;
+                // display: -moz-grid-line;
                 .game {
                     margin: 12px;
                     padding: 2px;
@@ -20,6 +28,7 @@ html {
                     border-radius: 10%;
                     color: black;
                     max-width: 4fr;
+
                     $block-height: 70%;
                     .block-left {
                         width: 55%;
@@ -46,16 +55,16 @@ html {
                     * {
                         padding: 1px;
                     }
-                    @media (max-width: 1000px) {
+                    @media (max-width: 900px) {
                         & {
-                            width: 40%;
-                            height: 250px;
+                            width: 45%;
+                            font-size: 90%;
                         }
                     }
-                    @media (max-width: 800px) {
+                    @media (max-width: 750px) {
                         & {
                             width: 80%;
-                            height: 250px;
+                            font-size: 80%;
                         }
                     }
                 }
@@ -84,12 +93,5 @@ html {
             }
         }
         @import "./default.scss";
-        footer {
-            padding: 10px;
-            max-height: 100px;
-            .contacts {
-                padding: 10px;
-            }
-        }
     }
 }
