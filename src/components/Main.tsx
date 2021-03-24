@@ -18,21 +18,6 @@ export const Main = () => {
     const [total, setTotal] = useState(0);
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
     useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
-    // function sleep(milliseconds) {
-    //     const date = Date.now();
-    //     let currentDate = null;
-    //     do {
-    //         currentDate = Date.now();
-    //     } while (currentDate - date < milliseconds);
-    // }
-    // Array(1000)
-    //     .fill(0)
-    //     .map((n, i) => i + 1)
-    //     .reverse()
-    //     .forEach((n) => {
-    //         n - 7 > 0 && console.log(`${n} - ${n - 7}`);
-    //         sleep(50);
-    //     });
     return isFetch ? (
         <Loader />
     ) : (
