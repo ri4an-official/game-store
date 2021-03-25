@@ -17,12 +17,12 @@ export const Menu = () => {
                     <Nav className="nav-tabs" role="tablist">
                         <Nav.Item>
                             <Link className="navbar-brand" to="/">
-                                Game store
+                                Game Store
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Link className="nav-link" to="/basket">
-                                <img src={basket} /> <span>Basket </span>
+                            <Link className="nav-link" to="/cart">
+                                <img src={basket} /> <span>Cart </span>
                                 <span className="count">
                                     {countGamesInBasket || null}
                                 </span>

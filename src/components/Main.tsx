@@ -16,9 +16,7 @@ export const Main = () => {
     const [total, setTotal] = useState(0);
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
     useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
-    return isFetch ? (
-        <Loader />
-    ) : (
+    return !isFetch ? (
         <>
             <Search onSubmit={async ({ name }) => dispatch(search(name))} />
             <p />
@@ -44,5 +42,7 @@ export const Main = () => {
                 />
             )}
         </>
+    ) : (
+        <Loader />
     );
 };

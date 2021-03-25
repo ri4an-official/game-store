@@ -18,10 +18,9 @@ html {
             min-width: 90%;
             min-height: 300px;
             .games {
-                // display: -moz-grid-line;
                 .game {
                     margin: 12px;
-                    padding: 2px;
+                    padding: 7px;
                     width: 31%;
                     height: 250px;
                     display: inline-block;
@@ -53,7 +52,7 @@ html {
                         color: red;
                     }
                     * {
-                        padding: 1px;
+                        padding: 0.1px;
                     }
                     @media (max-width: 900px) {
                         & {

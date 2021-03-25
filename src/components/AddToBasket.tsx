@@ -6,9 +6,8 @@ export const AddToBasket = ({ children }: { children: Game }) => {
     const dispatch = useDispatch();
     return (
         <span
-            onClick={
-                () => dispatch(addToBasket({ ...children, id: Date.now() }))
-                //! отсутствует свойство price
+            onClick={() =>
+                dispatch(addToBasket({ ...children, id: Date.now() }))
             }
             className="right cart"
         >

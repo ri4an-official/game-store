@@ -12,13 +12,13 @@ export const Basket = withRedirect(() => {
     const dispatch = useDispatch();
     return (
         <div className="container basket">
-            <Title noblock>Basket</Title>
+            <Title noblock>Cart</Title>
             <h5 className="noblock right green">
                 <Money>{user.sum}</Money>
             </h5>
             {error && <Alert variant="red">{error}</Alert>}
             {!games.length ? (
-                <h4 className="center red">Basket is empty</h4>
+                <h4 className="center red">Cart's empty</h4>
             ) : (
                 <>
                     {games.map((g) => (

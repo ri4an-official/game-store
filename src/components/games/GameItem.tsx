@@ -14,10 +14,16 @@ export const GameItem = ({ children }: { children: Game }) => (
         </div>
         <Name>{children.name}</Name>
         {!children.isBuy && <AddToBasket>{children}</AddToBasket>}
-        <div style={{ marginTop: "40px" }} className="center right">
+        <div
+            style={{ marginTop: "7px", marginRight: "10px" }}
+            className="center right"
+        >
             {children.key && (
                 <>
-                    KEY: <small>{children.key}</small>
+                    KEY:{" "}
+                    <small>
+                        <b>{children.key}</b>
+                    </small>
                 </>
             )}
         </div>
