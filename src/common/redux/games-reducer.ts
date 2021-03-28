@@ -2,7 +2,7 @@ import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
 import { ceil } from "lodash";
 import { Dispatch } from "react";
-import { getGames, searchGame } from "./api";
+import { getGames } from "./api";
 const slice = createSlice({
     name: "game-store",
     initialState: {
