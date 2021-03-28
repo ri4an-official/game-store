@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../common/loader/Loader";
 import { getCountGames } from "../common/redux/api";
-import { setGamesOnPage, search } from "../common/redux/games-reducer";
+import { setGamesOnPage } from "../common/redux/games-reducer";
 import { State } from "../common/redux/redux-reducer";
 import { Games } from "./games/Games";
 import { Search } from "./Search";
 import useAsyncEffect from "use-async-effect";
 import Pagination from "react-js-pagination";
+import { withRouter } from "react-router";
 
-export const Main = () => {
+export const Main = withRouter(({ history }) => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +19,13 @@ export const Main = () => {
     useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
     return !isFetch ? (
         <>
-            <Search onSubmit={async ({ name }) => dispatch(search(name))} />
+            <Search
+                onSubmit={({ name }) =>
+                    history.push(
+                        `/games/${name.replaceAll(" ", "-").toLowerCase()}`
+                    )
+                }
+            />
             <p />
             <Games>{games}</Games>
             <p />
@@ -45,4 +52,4 @@ export const Main = () => {
     ) : (
         <Loader />
     );
-};
+});
