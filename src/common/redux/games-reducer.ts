@@ -2,7 +2,7 @@ import { Game } from "./../models/Game";
 import { createSlice } from "@reduxjs/toolkit";
 import { ceil } from "lodash";
 import { Dispatch } from "react";
-import { getGames } from "./api";
+import { getGames, searchGame } from "./api";
 const slice = createSlice({
     name: "game-store",
     initialState: {
@@ -29,6 +29,5 @@ export const setGamesOnPage = (currentPage: number) => async (
     dispatch(setGames(await getGames(currentPage)));
     dispatch(setFetch(false));
 };
-
 export default slice.reducer;
 export const { setGames, setFetch } = slice.actions;

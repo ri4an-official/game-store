@@ -20,3 +20,7 @@ export const getGames = async (page: number) =>
 
 export const getGameDetails = async (name: string) =>
     (await games.get(`games/${name}`)).data as Game;
+    
+export const searchGame = () => {
+        
+    }
