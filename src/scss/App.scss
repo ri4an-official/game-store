@@ -33,16 +33,27 @@ html {
                         height: $block-height;
                         float: left;
                         img {
-                            width: 120%;
+                            width: 110%;
                             height: 90%;
                             border-radius: 10%;
                         }
                     }
                     .block-right {
-                        width: 25%;
+                        width: 30%;
                         height: $block-height;
                         float: right;
                         display: block;
+                        $size: 19.8%;
+                        .star-rating {
+                            .item {
+                                width: $size;
+                                height: $size;
+                                flex: 0 0 $size;
+                            }
+                            .active {
+                                color: #ffd000; // цвет звёздочек для указания текущего рейтинга
+                            }
+                        }
                     }
                     &:hover {
                         background-color: rgb(228, 225, 225);

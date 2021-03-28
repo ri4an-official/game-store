@@ -15,7 +15,6 @@ export const GameDetails = withRouter(({ match }) => {
     const dispatch = useDispatch();
     const slug = match.params.gameSlug as string; // название игры в адресной строке
     useAsyncEffect(async () => {
-        
         dispatch(setFetch(true));
         const game = await getGameDetails(slug);
         setSelectedGame({
