@@ -8,13 +8,14 @@ import { Games } from "./games/Games";
 import { Search } from "./Search";
 import useAsyncEffect from "use-async-effect";
 import Pagination from "react-js-pagination";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router";
 
-export const Main = withRouter(({ history }) => {
+export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [total, setTotal] = useState(0);
+    const history = useHistory();
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
     useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
     return !isFetch ? (
@@ -52,4 +53,4 @@ export const Main = withRouter(({ history }) => {
     ) : (
         <Loader />
     );
-});
+};
