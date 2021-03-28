@@ -1,6 +1,6 @@
 import { Game } from "../../common/models/Game";
 import { AddToBasket } from "../AddToBasket";
-import { withRouter } from "react-router";
+import { useParams } from "react-router";
 import { useState } from "react";
 import useAsyncEffect from "use-async-effect";
 import { setFetch } from "../../common/redux/games-reducer";
@@ -9,14 +9,14 @@ import { getGameDetails } from "../../common/redux/api";
 import { Loader } from "../../common/loader/Loader";
 import { State } from "../../common/redux/redux-reducer";
 
-export const GameDetails = withRouter(({ match }) => {
+export const GameDetails = () => {
     const myGames = useSelector((state: State) => state.login.user.games);
     const [selectedGame, setSelectedGame] = useState({} as Game);
     const dispatch = useDispatch();
-    const slug = match.params.gameSlug as string; // название игры в адресной строке
+    const { gameName } = useParams<{ gameName: string }>();
     useAsyncEffect(async () => {
         dispatch(setFetch(true));
-        const game = await getGameDetails(slug);
+        const game = await getGameDetails(gameName);
         setSelectedGame({
             ...game,
             //* наконец то пофиксил :)
@@ -24,7 +24,7 @@ export const GameDetails = withRouter(({ match }) => {
             isBuy: myGames.some((g) => g.name === game.name),
         });
         dispatch(setFetch(false));
-    }, [slug]);
+    }, [gameName]);
     return selectedGame.name ? (
         <>
             <span>
@@ -49,4 +49,4 @@ export const GameDetails = withRouter(({ match }) => {
     ) : (
         <Loader />
     );
-});
+};

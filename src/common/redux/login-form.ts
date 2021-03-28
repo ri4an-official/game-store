@@ -9,7 +9,7 @@ const slice = createSlice({
             { name: "Vadim", password: "1", sum: 10000, games: [] as Game[] },
             { name: "Vasya", password: "2", sum: 1000, games: [] as Game[] },
         ] as User[],
-        auth: true,
+        auth: false,
         user: {
             name: "Vadim",
             password: "1",

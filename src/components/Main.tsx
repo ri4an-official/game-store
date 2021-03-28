@@ -8,16 +8,18 @@ import { Games } from "./games/Games";
 import { Search } from "./Search";
 import useAsyncEffect from "use-async-effect";
 import Pagination from "react-js-pagination";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
-    const dispatch = useDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
+    const page = Number(useParams<{ page: string }>().page ?? 1);
+    const [currentPage, setCurrentPage] = useState(page);
     const [total, setTotal] = useState(0);
     const history = useHistory();
+    const dispatch = useDispatch();
+
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
-    useAsyncEffect(() => dispatch(setGamesOnPage(currentPage)), [currentPage]);
+    useAsyncEffect(() => dispatch(setGamesOnPage(page)), [page]);
     return !isFetch ? (
         <>
             <Search
@@ -33,7 +35,10 @@ export const Main = () => {
             {games.length && (
                 <Pagination
                     totalItemsCount={total}
-                    onChange={setCurrentPage}
+                    onChange={(p) => {
+                        setCurrentPage(p);
+                        history.push(`/${p}`);
+                    }}
                     activePage={currentPage}
                     itemsCountPerPage={21}
                     activeClass="active"

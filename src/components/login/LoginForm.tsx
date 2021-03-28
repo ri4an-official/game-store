@@ -6,9 +6,9 @@ export const LoginForm = reduxForm({ form: "login" })((props) => {
     return (
         <MDBContainer>
             <MDBRow>
-                <MDBCol md="6">
+                <MDBCol md="10">
                     <Form
-                        className="col-md-5 mt-5"
+                        className="col-md-10 mt-2"
                         onSubmit={props.handleSubmit}
                     >
                         <p className="h5 text-center mb-4">Sign in</p>
