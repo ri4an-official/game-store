@@ -6,6 +6,7 @@ import { State } from "../common/redux/redux-reducer";
 import { Title } from "../common/Title";
 import bin from "./../common/images/free-icon-dustbin-4205487.svg";
 import { Money } from "./Money";
+
 export const Cart = withRedirect(() => {
     const games = useSelector((state: State) => state.basket.games);
     const { user, error } = useSelector((state: State) => state.login);

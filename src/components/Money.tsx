@@ -1,9 +1,9 @@
-export const Money = ({ children = 0, className = "", type = "RUB" }) => (
-    <strong className={className}>
+export const Money = ({ children = 0, className = "", type = "USD" }) => (
+    <h4 className={className}>
         {children}{" "}
-        {(type === "RUB" && " RUB.") ||
+        {(type === "RUB" && "RUB.") ||
             (type === "USD" && "$") ||
             (type === "TEN" && " TEN.") ||
             type + "."}
-    </strong>
+    </h4>
 );

@@ -9,7 +9,7 @@ export const GameItem = ({ children }: { children: Game }) => (
             <img className="game-img" src={children.background_image} />
         </div>
         <div className="block-right">
-            <Money className="noblock">{children.price}</Money>
+            <Money className="center">{children.price}</Money>
             <Rating>{children.rating}</Rating>
         </div>
         <Name>{children.name}</Name>

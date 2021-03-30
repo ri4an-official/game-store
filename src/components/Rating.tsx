@@ -1,8 +1,10 @@
+import { ceil, range } from "lodash";
+
 export const Rating = ({ children = 0 }) => (
     <div className="star-rating">
-        {[1, 2, 3, 4, 5].map((n) => (
-            <span className="item">
-                {n < children ? (
+        {range(1, 6).map((n) => (
+            <span key={n} className="item">
+                {n <= ceil(children) ? (
                     <span className="active">
                         <Star />
                     </span>
