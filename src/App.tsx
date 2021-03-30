@@ -7,7 +7,7 @@ import { Cart } from "./components/Cart";
 import { NotFound } from "./components/NotFound";
 import { Main } from "./components/Main";
 import { GameDetails } from "./components/games/GameDetails";
-import { Profile } from "./Profile";
+import { Profile } from "./components/Profile";
 export const App = () => (
     <div className="app">
         <Menu />

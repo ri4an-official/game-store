@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../common/loader/Loader";
 import { getCountGames } from "../common/redux/api";
-import { setGamesOnPage } from "../common/redux/games-reducer";
+import { setGamesAsync } from "../common/redux/games-reducer";
 import { State } from "../common/redux/redux-reducer";
 import { Games } from "./games/Games";
 import { Search } from "./Search";
@@ -12,14 +12,14 @@ import { useHistory, useParams } from "react-router";
 
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
-    const page = Number(useParams<{ page: string }>().page ?? 1);
+    const page = Number(useParams<any>().page ?? 1);
     const history = useHistory();
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(page);
     const [total, setTotal] = useState(0);
 
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
-    useAsyncEffect(() => dispatch(setGamesOnPage(page)), [page]);
+    useAsyncEffect(() => dispatch(setGamesAsync(page)), [page]);
     return !isFetch ? (
         <>
             <Search

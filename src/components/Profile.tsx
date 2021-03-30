@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { State } from "./common/redux/redux-reducer";
-import { Title } from "./common/Title";
-import { Games } from "./components/games/Games";
+import { State } from "../common/redux/redux-reducer";
+import { Title } from "../common/Title";
+import { Games } from "./games/Games";
 
 export const Profile = () => {
     const myGames = useSelector((state: State) => state.login.user.games);

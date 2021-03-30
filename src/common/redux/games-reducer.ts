@@ -22,7 +22,7 @@ const slice = createSlice({
     },
 });
 
-export const setGamesOnPage = (currentPage: number) => async (
+export const setGamesAsync = (currentPage: number) => async (
     dispatch: Dispatch<any>
 ) => {
     dispatch(setFetch(true));
