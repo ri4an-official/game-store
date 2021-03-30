@@ -13,10 +13,10 @@ import { useHistory, useParams } from "react-router";
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore);
     const page = Number(useParams<{ page: string }>().page ?? 1);
-    const [currentPage, setCurrentPage] = useState(page);
-    const [total, setTotal] = useState(0);
     const history = useHistory();
     const dispatch = useDispatch();
+    const [currentPage, setCurrentPage] = useState(page);
+    const [total, setTotal] = useState(0);
 
     useAsyncEffect(async () => setTotal(await getCountGames()), []);
     useAsyncEffect(() => dispatch(setGamesOnPage(page)), [page]);
@@ -32,28 +32,26 @@ export const Main = () => {
             <p />
             <Games>{games}</Games>
             <p />
-            {games.length && (
-                <Pagination
-                    totalItemsCount={total}
-                    onChange={(p) => {
-                        setCurrentPage(p);
-                        history.push(`/${p}`);
-                    }}
-                    activePage={currentPage}
-                    itemsCountPerPage={21}
-                    activeClass="active"
-                    activeLinkClass="link"
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    prevPageText="<|"
-                    nextPageText="|>"
-                    firstPageText="<<|"
-                    hideFirstLastPages
-                    lastPageText="|>>"
-                    innerClass="pagination pagination-lg justify-content-center"
-                    disabledClass="disabled"
-                />
-            )}
+            <Pagination
+                totalItemsCount={total}
+                onChange={(p) => {
+                    setCurrentPage(p);
+                    history.push(`/${p}`);
+                }}
+                activePage={currentPage}
+                itemsCountPerPage={21}
+                activeClass="active"
+                activeLinkClass="link"
+                itemClass="page-item"
+                linkClass="page-link"
+                prevPageText="<|"
+                nextPageText="|>"
+                firstPageText="<<|"
+                hideFirstLastPages
+                lastPageText="|>>"
+                innerClass="pagination pagination-lg justify-content-center"
+                disabledClass="disabled"
+            />
         </>
     ) : (
         <Loader />
