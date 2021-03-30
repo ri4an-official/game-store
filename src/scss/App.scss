@@ -43,9 +43,9 @@ html {
                         height: $block-height;
                         float: right;
                         display: block;
-                        $size: 19.8%;
+                        $size: 19.5%;
                         .star-rating {
-                            .item {
+                            .item * {
                                 width: $size;
                                 height: $size;
                                 flex: 0 0 $size;
