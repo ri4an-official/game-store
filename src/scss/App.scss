@@ -44,10 +44,12 @@ html {
                         float: right;
                         $size: 19.5%;
                         .star-rating {
-                            .item * {
-                                width: $size;
-                                height: $size;
-                                flex: 0 0 $size;
+                            .item {
+                                * {
+                                    width: $size;
+                                    height: $size;
+                                    flex: 0 0 $size;
+                                }
                             }
                             .active {
                                 color: #ffd000; // цвет звёздочек для указания текущего рейтинга
@@ -90,11 +92,10 @@ html {
                 margin: 13px 13px 13px 0;
             }
             .basket {
-                margin: auto;
                 .item {
                     height: 100px;
                     * {
-                        margin: 30px;
+                        margin: 3%;
                     }
                 }
             }

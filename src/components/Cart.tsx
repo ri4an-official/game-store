@@ -1,16 +1,16 @@
-import { Alert, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { withRedirect } from "../common/hocs/withRedirect";
-import { remove, buyGames } from "../common/redux/basket-reducer";
-import { State } from "../common/redux/redux-reducer";
-import { Title } from "../common/Title";
-import bin from "./../common/images/free-icon-dustbin-4205487.svg";
-import { Money } from "./Money";
+import { Alert, Button } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { withRedirect } from "../common/hocs/withRedirect"
+import { remove, buyGames } from "../common/redux/basket-reducer"
+import { State } from "../common/redux/redux-reducer"
+import { Title } from "../common/Title"
+import bin from "./../common/images/free-icon-dustbin-4205487.svg"
+import { Money } from "./Money"
 
 export const Cart = withRedirect(() => {
-    const games = useSelector((state: State) => state.basket.games);
-    const { user, error } = useSelector((state: State) => state.login);
-    const dispatch = useDispatch();
+    const games = useSelector((state: State) => state.basket.games)
+    const { user, error } = useSelector((state: State) => state.login)
+    const dispatch = useDispatch()
     return (
         <div className="container basket">
             <Title noblock>Cart</Title>
@@ -28,7 +28,7 @@ export const Cart = withRedirect(() => {
                                 <h3 className="noblock">{g.name}</h3>
                                 <Money>{g.price}</Money>
                                 <img
-                                    className="btn btn-danger right"
+                                    className="btn btn-danger"
                                     onClick={() => dispatch(remove(g.id))}
                                     src={bin}
                                 />
@@ -46,5 +46,5 @@ export const Cart = withRedirect(() => {
                 </>
             )}
         </div>
-    );
-});
+    )
+})

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Loader } from "../common/loader/Loader"
-import { getCountGames } from "../common/redux/api"
+import { getGamesCount } from "../common/redux/api"
 import { setGamesAsync } from "../common/redux/games-reducer"
 import { State } from "../common/redux/redux-reducer"
 import { Games } from "./games/Games"
@@ -9,16 +9,15 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useParams } from "react-router"
-import { withErrorHandler } from "../common/hocs/withErrorHandler"
 
-export const Main = withErrorHandler(() => {
+export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore)
     const page = Number(useParams<{ page: string }>().page ?? 1)
     const history = useHistory()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(page)
     const [total, setTotal] = useState(0)
-    useAsyncEffect(async () => setTotal(await getCountGames()), [])
+    useAsyncEffect(async () => setTotal(await getGamesCount()), [])
     useAsyncEffect(() => dispatch(setGamesAsync(page)), [page])
     return !isFetch ? (
         <>
@@ -55,4 +54,4 @@ export const Main = withErrorHandler(() => {
     ) : (
         <Loader />
     )
-})
+}
