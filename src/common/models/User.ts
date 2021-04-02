@@ -1,5 +1,5 @@
 import { Game } from "./Game";
-export type User = {
+export interface User {
     name: string;
     password: string;
     role: "user" | "admin";
