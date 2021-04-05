@@ -12,7 +12,7 @@ import { useHistory, useParams } from "react-router"
 
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore)
-    const page = Number(useParams<{ page: string }>().page ?? 1)
+    const page = Number(useParams<any>().page ?? 1)
     const history = useHistory()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(page)
@@ -24,7 +24,10 @@ export const Main = () => {
             <Search
                 onSubmit={({ name }) =>
                     history.push(
-                        `/games/${name.replaceAll(" ", "-").toLowerCase()}`
+                        `/games/${
+                            games.find((g) => g.slug.includes(name))?.slug ??
+                            name.replaceAll(" ", "-").toLowerCase()
+                        }`
                     )
                 }
             />

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { withRedirect } from "../common/hocs/withRedirect"
 import { remove, buyGames } from "../common/redux/basket-reducer"
 import { State } from "../common/redux/redux-reducer"
-import { Title } from "../common/Title"
+import { Title } from "./Title"
 import bin from "./../common/images/free-icon-dustbin-4205487.svg"
 import { Money } from "./Money"
 

@@ -1,14 +1,12 @@
-import { Nav, Navbar } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { State } from "../common/redux/redux-reducer";
-import basket from "./../common/images/free-icon-shopping-4220891.svg";
-import profile from "./../common/images/profile.svg";
+import { Nav, Navbar } from "react-bootstrap"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { State } from "../common/redux/redux-reducer"
+import basket from "./../common/images/free-icon-shopping-4220891.svg"
+import profile from "./../common/images/profile.svg"
 export const Menu = () => {
-    const { auth, user } = useSelector((state: State) => state.login);
-    const countGamesInBasket = useSelector(
-        (state: State) => state.basket.games.length
-    );
+    const { auth, user } = useSelector((state: State) => state.login)
+    const { length } = useSelector((state: State) => state.basket.games)
     return (
         <>
             <Navbar expand="lg" className="container navbar">
@@ -23,9 +21,7 @@ export const Menu = () => {
                         <Nav.Item>
                             <Link className="nav-link" to="/cart">
                                 <img src={basket} /> <span>Cart </span>
-                                <span className="count">
-                                    {countGamesInBasket || null}
-                                </span>
+                                <span className="count">{length || null}</span>
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -44,5 +40,5 @@ export const Menu = () => {
                 </Navbar.Collapse>
             </Navbar>
         </>
-    );
-};
+    )
+}
