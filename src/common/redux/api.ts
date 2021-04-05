@@ -1,4 +1,4 @@
-import { Game } from "./../models/Game"
+import { Game, withPrice } from "./../models/Game"
 import axios from "axios"
 
 const games = axios.create({
@@ -12,11 +12,13 @@ const games = axios.create({
     // },
 })
 
-export const getGamesCount = async (): Promise<number> =>
-    (await games.get("games")).data.count
+export const getGamesCount = async () =>
+    (await games.get("games")).data.count as number
 
-export const getGames = async (page: number): Promise<Game[]> =>
-    (await games.get(`games?page=${page}`)).data.results
+export const getGames = async (page: number) =>
+    ((await games.get(`games?page=${page}`)).data.results as Game[]).map(
+        withPrice
+    )
 
-export const getGameDetails = async (name: string): Promise<Game> =>
-    (await games.get(`games/${name}`)).data
+export const getGameDetails = async (name: string) =>
+    withPrice((await games.get(`games/${name}`)).data as Game)

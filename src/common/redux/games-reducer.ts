@@ -10,10 +10,7 @@ const slice = createSlice({
     },
     reducers: {
         setGames(state, { payload }: { payload: Game[] }) {
-            state.games = payload.map((g) => ({
-                ...g,
-                price: Number((g.rating * 4.3).toFixed(2)),
-            }))
+            state.games = [...payload]
         },
         setFetch(state, { payload }: { payload: boolean }) {
             state.isFetch = payload
