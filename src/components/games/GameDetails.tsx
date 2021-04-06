@@ -23,7 +23,7 @@ export const GameDetails = () => {
         })
         dispatch(setFetch(false))
     }, [gameName])
-    return selectedGame.name ? (
+    return selectedGame.slug ? (
         <>
             <span>
                 <AddToBasket>{selectedGame}</AddToBasket>
