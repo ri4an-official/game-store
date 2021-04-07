@@ -13,16 +13,16 @@ export const GameDetails = () => {
     const myGames = useSelector((state: State) => state.login.user.games)
     const [selectedGame, setSelectedGame] = useState({} as Game)
     const dispatch = useDispatch()
-    const { gameName } = useParams<{ gameName: string }>()
+    const { title } = useParams<{ title: string }>()
     useAsyncEffect(async () => {
         dispatch(setFetch(true))
-        const game = await getGameDetails(gameName)
+        const game = await getGameDetails(title)
         setSelectedGame({
             ...game,
             isBuy: myGames.some((g) => g.name === game.name),
         })
         dispatch(setFetch(false))
-    }, [gameName])
+    }, [title])
     return selectedGame.slug ? (
         <>
             <span>

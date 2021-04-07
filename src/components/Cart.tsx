@@ -24,14 +24,14 @@ export const Cart = withRedirect(() => {
                 <>
                     {games.map((g) => (
                         <>
-                            <div className="item shadow">
+                            <div className="item shadow ">
                                 <h3 className="noblock">{g.name}</h3>
-                                <Money>{g.price}</Money>
                                 <img
-                                    className="btn btn-danger"
+                                    className="btn right noblock btn-danger"
                                     onClick={() => dispatch(remove(g.id))}
                                     src={bin}
                                 />
+                                <Money className="right">{g.price}</Money>
                             </div>
                             <p />
                         </>

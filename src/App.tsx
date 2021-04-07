@@ -15,7 +15,7 @@ export const App = withErrorHandler(() => (
         <Menu />
         <main className="app-content container">
             <Switch>
-                <Route path="/games/:gameName?" component={GameDetails} />
+                <Route path="/games/:title?" component={GameDetails} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/login" component={Login} />
