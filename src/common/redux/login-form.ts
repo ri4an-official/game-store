@@ -13,7 +13,7 @@ const slice = createSlice({
         user: {
             name: "Vadim",
             password: "1",
-            sum: 10000,
+            sum: 1000,
             games: [] as Game[],
         } as User,
         error: "",

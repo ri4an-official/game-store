@@ -18,11 +18,11 @@ const slice = createSlice({
     },
 })
 
-export const setGamesAsync = (page: number) => async (
+export const setGamesAsync = (page: number, query?: string) => async (
     dispatch: Dispatch<any>
 ) => {
     dispatch(setFetch(true))
-    dispatch(setGames(await getGames(page)))
+    dispatch(setGames(await getGames(page, query)))
     dispatch(setFetch(false))
 }
 export default slice.reducer

@@ -8,39 +8,33 @@ import { Games } from "./games/Games"
 import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
-import { useHistory, useParams } from "react-router"
-
+import { useHistory, useLocation, useParams } from "react-router"
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore)
-    const page = Number(useParams<{ page: string }>().page ?? 1)
+    const page = Number(useParams<any>().page ?? 1)
+    const term = useLocation().search.replaceAll("?term=", "")
     const history = useHistory()
     const dispatch = useDispatch()
-    const [currentPage, setCurrentPage] = useState(page)
     const [total, setTotal] = useState(0)
-    useAsyncEffect(async () => setTotal(await getGamesCount()), [])
-    useAsyncEffect(() => dispatch(setGamesAsync(page)), [page])
+    useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
+    useAsyncEffect(() => dispatch(setGamesAsync(page, term)), [page, term])
     return !isFetch ? (
         <>
-            <Search
-                onSubmit={({ name }) =>
-                    history.push(
-                        `/games/${
-                            games.find((g) => g.slug.includes(name))?.slug ??
-                            name.replaceAll(" ", "-").toLowerCase()
-                        }`
-                    )
-                }
-            />
+            <video controls autoPlay loop muted width="600" height="350">
+                <source src="https://youtu.be/VRjkP63ajHk?t=7" />
+            </video>
+            <Search />
             <p />
             <Games>{games}</Games>
             <p />
             <Pagination
-                onChange={(p) => {
-                    setCurrentPage(p)
-                    history.push(`/${p === 1 ? "" : p}`)
-                }}
+                onChange={(p) =>
+                    history.push(
+                        `/${p === 1 ? "" : p}${term && `?term=${term}`}`
+                    )
+                }
                 totalItemsCount={total}
-                activePage={currentPage}
+                activePage={page}
                 itemsCountPerPage={20}
                 activeClass="active"
                 activeLinkClass="link"

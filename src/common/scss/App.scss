@@ -13,6 +13,7 @@ html {
     }
     .app {
         margin: auto;
+
         .app-content {
             margin: 60px;
             min-width: 90%;
@@ -88,8 +89,8 @@ html {
             .img {
                 border-radius: 10%;
                 width: 50%;
-                height: 30%;
-                float: left;
+                height: 320px;
+                float: right;
                 margin: 13px 13px 13px 0;
             }
             .basket {

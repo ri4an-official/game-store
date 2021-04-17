@@ -1,17 +1,30 @@
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { Field, reduxForm } from "redux-form";
-import { Input } from "../common/utils/controls";
+import { Form, Formik, Field } from "formik"
+import { Button, InputGroup } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { useHistory } from "react-router"
+import { setGamesAsync } from "../common/redux/games-reducer"
+import { Input } from "../common/utils/controls"
 
-export const Search = reduxForm({
-    form: "search",
-    initialValues: { name: "" },
-})((props) => (
-    <Form onSubmit={props.handleSubmit}>
-        <InputGroup>
-            <Field name="name" component={Input} />
-            <Button type="submit" variant="secondary">
-                Search
-            </Button>
-        </InputGroup>
-    </Form>
-));
+export const Search = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    return (
+        <Formik
+            initialValues={{ title: "" }}
+            onSubmit={async ({ title }) => {
+                dispatch(setGamesAsync(1, title))
+                history.push(`/?term=${title}`)
+            }}
+            // valvidate={({ title }) => {}}
+        >
+            <Form>
+                <InputGroup>
+                    <Field name="title" component={Input} />
+                    <Button type="submit" variant="secondary">
+                        Search
+                    </Button>
+                </InputGroup>
+            </Form>
+        </Formik>
+    )
+}

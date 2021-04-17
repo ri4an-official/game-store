@@ -1,10 +1,10 @@
-import { Form } from "react-bootstrap";
+import { Form } from "react-bootstrap"
 
-export const Input = ({ input }: any) => (
+export const Input = ({ field }: any) => (
     <Form.Control
         placeholder="Enter name of the game..."
-        {...input}
-        required
+        {...field}
+        required 
         type="input"
     />
-);
+)
