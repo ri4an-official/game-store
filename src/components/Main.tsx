@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Loader } from "../common/loader/Loader"
 import { getGamesCount } from "../common/redux/api"
@@ -20,9 +20,9 @@ export const Main = () => {
     useAsyncEffect(() => dispatch(setGamesAsync(page, term)), [page, term])
     return !isFetch ? (
         <>
-            <video controls autoPlay loop muted width="600" height="350">
+            {/* <video controls autoPlay loop muted width="600" height="350">
                 <source src="https://youtu.be/VRjkP63ajHk?t=7" />
-            </video>
+            </video> */}
             <Search />
             <p />
             <Games>{games}</Games>

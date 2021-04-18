@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { User } from "../../common/models/User"
 import { login } from "../../common/redux/login-form"
 
-export const Login = () => {
+export default () => {
     const dispatch = useDispatch()
     return (
         <Formik

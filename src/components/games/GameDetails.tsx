@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 import { getGameDetails } from "../../common/redux/api"
 import { Loader } from "../../common/loader/Loader"
 
-export const GameDetails = () => {
+export default () => {
     const [selectedGame, setSelectedGame] = useState({} as Game)
     const dispatch = useDispatch()
     const title = useParams<any>().title as string

@@ -3,7 +3,7 @@ import { State } from "../common/redux/redux-reducer"
 import { Title } from "./Title"
 import { Games } from "./games/Games"
 
-export const Profile = () => {
+export default () => {
     const myGames = useSelector((state: State) => state.login.user.games)
     return (
         <>

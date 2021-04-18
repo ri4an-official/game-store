@@ -7,7 +7,7 @@ import { Title } from "./Title"
 import bin from "./../common/images/free-icon-dustbin-4205487.svg"
 import { Money } from "./Money"
 
-export const Cart = withRedirect(() => {
+export default withRedirect(() => {
     const games = useSelector((state: State) => state.basket.games)
     const { user, error } = useSelector((state: State) => state.login)
     const dispatch = useDispatch()
