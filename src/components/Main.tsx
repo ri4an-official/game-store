@@ -9,6 +9,7 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
+
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore)
     const page = Number(useParams<any>().page ?? 1)

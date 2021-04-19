@@ -10,16 +10,15 @@ export const Search = () => {
     const dispatch = useDispatch()
     return (
         <Formik
-            initialValues={{ title: "" }}
-            onSubmit={async ({ title }) => {
-                dispatch(setGamesAsync(1, title))
-                history.push(`/?term=${title}`)
+            initialValues={{ term: "" }}
+            onSubmit={({ term }) => {
+                dispatch(setGamesAsync(1, term))
+                history.push(`/?term=${term}`)
             }}
-            // valvidate={({ title }) => {}}
         >
             <Form>
                 <InputGroup>
-                    <Field name="title" component={Input} />
+                    <Field name="term" component={Input} />
                     <Button type="submit" variant="secondary">
                         Search
                     </Button>
