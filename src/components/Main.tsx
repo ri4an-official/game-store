@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Loader } from "../common/loader/Loader"
 import { getGamesCount } from "../common/redux/api"
