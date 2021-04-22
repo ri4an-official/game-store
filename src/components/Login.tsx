@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik"
 import { useDispatch } from "react-redux"
-import { User } from "../../common/models/User"
-import { login } from "../../common/redux/login-form"
+import { User } from "../common/models/User"
+import { login } from "../common/redux/login-form"
 
 export default () => {
     const dispatch = useDispatch()

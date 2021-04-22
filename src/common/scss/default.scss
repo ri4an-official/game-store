@@ -10,6 +10,18 @@
 .yellow {
     color: rgba(187, 190, 10, 0.562);
 }
+.dark {
+    * {
+        background-color: black;
+        color: white;
+    }
+}
+.light {
+    * {
+        background-color: white;
+        color: black;
+    }
+}
 .center {
     text-align: center;
     * {
