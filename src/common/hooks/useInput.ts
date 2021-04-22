@@ -1,17 +1,16 @@
 import { useState } from "react"
 
-export const useInput = (initValue: any, requared = false) => {
+export const useInput = (initValue: string, requared = false) => {
     const [value, setValue] = useState(initValue)
     const [error, setError] = useState("")
-    return requared
+    return !requared
         ? {
               value,
-              error,
               onChange: (e: any) => setValue(e.target.value),
-              onBlur: () => requared && !value && setError("Field's requared"),
           }
         : {
               value,
+              error,
               onChange: (e: any) => setValue(e.target.value),
               onBlur: () => requared && !value && setError("Field's requared"),
           }

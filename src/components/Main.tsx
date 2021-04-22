@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Loader } from "../common/loader/Loader"
 import { getGamesCount } from "../common/redux/api"
@@ -9,12 +9,7 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
-import { withLoader } from "../common/hocs/withLoader"
-import { useTheme } from "../common/hooks/useTheme"
-import { useStore } from "effector-react"
-import { $messages, deleteMessage, getDataFx } from "../common/effector/model"
-import { useInput } from "../common/hooks/useInput"
-import { addMessage } from "./../common/effector/model"
+
 export const Main = () => {
     const { games, isFetch } = useSelector((state: State) => state.gamesStore)
     const page = Number(useParams<any>().page ?? 1)
@@ -24,23 +19,11 @@ export const Main = () => {
     const [total, setTotal] = useState(0)
     useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
     useAsyncEffect(() => dispatch(setGamesAsync(page, term)), [page, term])
-
-    const messages = useStore($messages)
-    const input = useInput("")
-    return isFetch ? (
+    return !isFetch ? (
         <>
-            <input {...input} />
-            <button
-                onClick={async () => {
-                    addMessage(input.value)
-                    getDataFx("https://jsonplaceholder.typicode.com/todos")
-                }}
-            >
-                Add message
-            </button>
-            {messages.map((m, i) => (
-                <div onClick={() => deleteMessage(i)}>{m} | -</div>
-            ))}
+            {/* <video controls autoPlay loop muted width="600" height="350">
+                <source src="https://youtu.be/VRjkP63ajHk?t=7" />
+            </video> */}
             <Search />
             <p />
             <Games>{games}</Games>
