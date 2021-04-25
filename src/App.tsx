@@ -10,9 +10,7 @@ import { withSuspense } from "./common/hocs/withSuspense"
 const Login = withSuspense(lazy(() => import("./components/Login")))
 const Cart = withSuspense(lazy(() => import("./components/Cart")))
 const Profile = withSuspense(lazy(() => import("./components/Profile")))
-const GameDetails = withSuspense(
-    lazy(() => import("./components/games/GameDetails"))
-)
+const GameDetails = withSuspense(lazy(() => import("./components/games/GameDetails")))
 
 export const App = withErrorHandler(() => (
     <div className="app">

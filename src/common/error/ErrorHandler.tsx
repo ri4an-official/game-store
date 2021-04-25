@@ -13,7 +13,7 @@ export class ErrorHandler extends Component {
 
     render = () =>
         this.state.hasError ? (
-            <Error>{this.state.error}</Error>
+            <Error>{globalThis.Error(this.state.error)}</Error>
         ) : (
             this.props.children
         )

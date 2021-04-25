@@ -1,4 +1,4 @@
-export const Error = ({ children = "" }) => (
+export const Error = ({ children = {} as Error }) => (
     <div
         style={{
             textAlign: "center",
@@ -7,9 +7,13 @@ export const Error = ({ children = "" }) => (
             minHeight: "500px",
         }}
     >
-        <h3 style={{ color: "red" }}>Oops! Error {children}</h3>
+        <h1>
+            Oops, Error!
+            <br />
+            <h3 style={{ color: "red" }}>{children.message}</h3>
+        </h1>
         <h5>
-            Go to{" "}
+            Back to{" "}
             <a className="card-link center" href="/">
                 Main page
             </a>
