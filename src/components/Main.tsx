@@ -18,10 +18,10 @@ export const Main = () => {
     const [total, setTotal] = useState(0)
     useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
     useAsyncEffect(() => setGamesFx({ page, term }), [page, term])
-    return !isFetch ? (
+    return isFetch ? (
         <Loader />
-    ) : !error ? (
-        <Error>{error ?? undefined}</Error>
+    ) : error ? (
+        <Error>{error}</Error>
     ) : (
         <>
             {/* <video controls autoPlay loop muted width="600" height="350">
