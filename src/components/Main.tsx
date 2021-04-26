@@ -27,7 +27,6 @@ export const Main = () => {
             {/* <video controls autoPlay loop muted width="600" height="350">
                 <source src="https://youtu.be/VRjkP63ajHk?t=7" />
             </video> */}
-            <Todos />
             <Search />
             <p />
             <Games>{games}</Games>
