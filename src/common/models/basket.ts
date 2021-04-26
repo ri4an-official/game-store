@@ -1,5 +1,5 @@
 import { combine, createEffect, createEvent, createStore } from "effector"
-import { Game } from "../models/Game"
+import { Game } from "./Game"
 
 export const addGame = createEvent<Game>()
 export const deleteGame = createEvent<number>()

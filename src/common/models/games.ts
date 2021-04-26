@@ -1,6 +1,6 @@
 import { getGames } from "../redux/api"
 import { combine, createEffect, restore } from "effector"
-import { Game } from "../models/Game"
+import { Game } from "./Game"
 
 export const setGamesFx = createEffect(
     async ({ page, term }: { page: number; term?: string }) =>

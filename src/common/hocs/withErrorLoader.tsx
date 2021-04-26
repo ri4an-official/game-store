@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Loader } from "../loader/Loader"
-import { $gamesStore } from "../store/games"
+import { $gamesStore } from "../models/games"
 import { useStore } from "effector-react"
 import { Error } from "./../error/Error"
 export const withErrorLoader = (Component: FC<any>) => (props?: any) => {

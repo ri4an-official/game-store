@@ -6,9 +6,10 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
-import { $gamesStore, setGamesFx } from "../common/store/games"
+import { $gamesStore, setGamesFx } from "../common/models/games"
 import { useStore } from "effector-react"
 import { Error } from "./../common/error/Error"
+import { Todos } from "./Todos"
 export const Main = () => {
     const { games, isFetch, error } = useStore($gamesStore)
     const page = Number(useParams<any>().page ?? 1)
@@ -17,16 +18,12 @@ export const Main = () => {
     const [total, setTotal] = useState(0)
     useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
     useAsyncEffect(() => setGamesFx({ page, term }), [page, term])
-    return isFetch ? (
-        <Loader />
-    ) : error ? (
-        <Error>{error}</Error>
-    ) : (
+    return (
         <>
             {/* <video controls autoPlay loop muted width="600" height="350">
                 <source src="https://youtu.be/VRjkP63ajHk?t=7" />
             </video> */}
-
+            <Todos />
             <Search />
             <p />
             <Games>{games}</Games>

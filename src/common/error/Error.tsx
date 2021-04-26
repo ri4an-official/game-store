@@ -7,16 +7,16 @@ export const Error = ({ children = {} as Error }) => (
             minHeight: "500px",
         }}
     >
-        <h1>
-            Oops, Error!
-            <br />
-            <h3 style={{ color: "red" }}>{children.message}</h3>
+        <h1 style={{ fontSize: "105px", color: "gray" }}>
+            {children.message.match(/\d+/)}
         </h1>
-        <h5>
-            Back to{" "}
-            <a className="card-link center" href="/">
-                Main page
-            </a>
-        </h5>
+        <h3>
+            Whoops! Something went wrong.
+            <br /> We are looking into it.
+        </h3>
+        <h1>{/* <h3 style={{ color: "red" }}>{children.message}</h3> */}</h1>
+        <a style={{ fontSize: "20px" }} className="btn btn-dark center" href="/">
+            Main page
+        </a>
     </div>
 )
