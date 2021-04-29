@@ -8,7 +8,7 @@ export const Error = ({ children = {} as Error }) => (
         }}
     >
         <h1 style={{ fontSize: "105px", color: "gray" }}>
-            {children.message.match(/\d+/)}
+            {children.message.match(/\d+/) ?? 404}
         </h1>
         <h3>
             Whoops! Something went wrong.

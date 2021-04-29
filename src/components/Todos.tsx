@@ -1,42 +1,57 @@
 import { useStore } from "effector-react"
-import { useState } from "react"
-import { InputGroup } from "react-bootstrap"
+import { FormControl, InputGroup, Button } from "react-bootstrap"
 import { useInput } from "../common/hooks/useInput"
 import {
     $todos,
     addTodo,
+    clear,
     completeTodo,
     deleteTodo,
     incompleteTodo,
     Todo,
 } from "./../common/models/model"
 export const Todos = () => {
-    const todos = useStore($todos)
-    const inp = useInput("")
+    const { all, completed, incompleted } = useStore($todos)
+    const { error, ...inp } = useInput("", true)
     const select = useInput("all")
     return (
-        <div>
+        <>
             <h1>Todo-List</h1>
             <InputGroup>
-                <input {...inp} />
+                <FormControl
+                    {...inp}
+                    onKeyPress={(e: any) =>
+                        e.key === "Enter" && inp.value && addTodo(inp.value)
+                    }
+                    placeholder="Todo..."
+                    type="input"
+                />
+                <span className="red">{error}</span>
                 <select {...select}>
-                    <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="incompleted">Incompleted</option>
+                    <option value="all">All ({all.length})</option>
+                    <option value="completed">Completed ({completed.length})</option>
+                    <option value="incompleted">
+                        Incompleted ({incompleted.length})
+                    </option>
                 </select>
-                <button className="btn btn-primary" onClick={() => addTodo(inp.value)}>
+                <Button
+                    variant="outline-primary"
+                    onClick={() => inp.value && addTodo(inp.value)}
+                >
                     Add Todo
-                </button>
+                </Button>
+                <Button variant="outline-secondary" onClick={() => clear()}>
+                    Clear Todos
+                </Button>
             </InputGroup>
             <div className="todos">
-                {select.value === "all" &&
-                    todos.all.map((t) => <TodoItem>{t}</TodoItem>)}
+                {select.value === "all" && all.map((t) => <TodoItem>{t}</TodoItem>)}
                 {select.value === "completed" &&
-                    todos.completed.map((t) => <TodoItem>{t}</TodoItem>)}
+                    completed.map((t) => <TodoItem>{t}</TodoItem>)}
                 {select.value === "incompleted" &&
-                    todos.incompleted.map((t) => <TodoItem>{t}</TodoItem>)}
+                    incompleted.map((t) => <TodoItem>{t}</TodoItem>)}
             </div>
-        </div>
+        </>
     )
 }
 const TodoItem = ({ children }: { children: Todo }) => (
@@ -56,7 +71,16 @@ const TodoItem = ({ children }: { children: Todo }) => (
                 Incomplete
             </button>
         )}
-        <span style={{ fontSize: "24px", marginLeft: "10px" }}>{children.message}</span>
+        <span
+            style={{
+                fontSize: "24px",
+                margin: "15px",
+                padding: "15px",
+                color: children.completed ? "gray" : "black",
+            }}
+        >
+            {children.content}
+        </span>
         <button
             onClick={() => deleteTodo(children.id)}
             className="right btn btn-outline-danger"

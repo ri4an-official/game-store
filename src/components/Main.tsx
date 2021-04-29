@@ -8,29 +8,37 @@ import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
 import { $gamesStore, setGamesFx } from "../common/models/games"
 import { useStore } from "effector-react"
-import { Error } from "./../common/error/Error"
 import { Todos } from "./Todos"
+import { Error } from "./../common/error/Error"
 export const Main = () => {
     const { games, isFetch, error } = useStore($gamesStore)
     const page = Number(useParams<any>().page ?? 1)
     const term = useLocation().search.replaceAll("?term=", "")
+    // const term = useLocation<{ term: string }>().state.term
     const history = useHistory()
     const [total, setTotal] = useState(0)
     useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
     useAsyncEffect(() => setGamesFx({ page, term }), [page, term])
-    return (
+    return isFetch ? (
+        <Loader />
+    ) : error ? (
+        <>
+            <Error>{error}</Error>
+            {/* <Todos /> */}
+        </>
+    ) : (
         <>
             {/* <video controls autoPlay loop muted width="600" height="350">
                 <source src="https://youtu.be/VRjkP63ajHk?t=7" />
             </video> */}
-            <Todos />
             <Search />
             <p />
             <Games>{games}</Games>
             <p />
             <Pagination
                 onChange={(p) =>
-                    history.push(`/${p === 1 ? "" : p}${term && `?term=${term}`}`)
+                    // history.push(`/${p === 1 ? "" : p}${term && `?term=${term}`}`)
+                    history.push(p === 1 ? "" : p.toString(), term && term)
                 }
                 totalItemsCount={total}
                 activePage={page}
