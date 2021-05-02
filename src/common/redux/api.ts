@@ -11,11 +11,14 @@ const games = axios.create({
 })
 
 export const getGamesCount = async (query: string = "") =>
-    (await games.get(`/games${query && "?search=" + query}`)).data.count as number
+    await games
+        .get(`/games${query && "?search=" + query}`)
+        .then((r) => r.data.count as number)
 
 export const getGames = async (page: number, query: string = "") =>
-    ((await games.get(`/games?page=${page + (query && `&search=${query}`)}`)).data
-        .results as Game[]).map((g) => g.withPrice())
+    await games
+        .get(`/games?page=${page + (query && `&search=${query}`)}`)
+        .then((r) => (r.data.results as Game[]).map((g) => g.withPrice()))
 
 export const getGameDetails = async (name: string) =>
-    ((await games.get(`/games/${name}`)).data as Game).withPrice()
+    await games.get(`/games/${name}`).then((r) => (r.data as Game).withPrice())

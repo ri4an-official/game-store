@@ -1,11 +1,5 @@
 import { combine, createEvent, createStore } from "effector"
-
-export class Todo {
-    constructor(content: string, id: number) {
-        this.content = content
-        this.id = id
-        this.completed = false
-    }
+export interface Todo {
     id: number
     content: string
     completed: boolean
@@ -19,7 +13,10 @@ export const clear = createEvent()
 export const $todos = combine(
     {
         all: createStore<Todo[]>([])
-            .on(addTodo, (state, content) => [new Todo(content, state.length), ...state])
+            .on(addTodo, (state, content) => [
+                { id: state.length, content, completed: false },
+                ...state,
+            ])
             .on(deleteTodo, (state, id) => state.filter((t) => t.id !== id))
             .on(completeTodo, (state, id) =>
                 state.map((t) => (t.id === id ? { ...t, completed: true } : t))
