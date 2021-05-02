@@ -6,7 +6,7 @@ export const setGamesFx = createEffect(
     async ({ page, term }: { page: number; term?: string }) =>
         await getGames(page, term)
 )
-export const $gamesStore = combine({
+export const $games = combine({
     games: restore<Game[]>(setGamesFx, []),
     isFetch: setGamesFx.pending,
     error: restore(setGamesFx.failData, null).reset(setGamesFx.done),
