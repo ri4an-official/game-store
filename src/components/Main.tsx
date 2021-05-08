@@ -6,18 +6,17 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
-import { $games, setGamesFx } from "../common/models/games"
+import { $games, fxSetGames } from "../common/models/games"
 import { useStore } from "effector-react"
 import { Error } from "./../common/error/Error"
 export const Main = () => {
     const { games, isFetch, error } = useStore($games)
     const page = Number(useParams<any>().page ?? 1)
     const term = useLocation().search.replaceAll("?term=", "")
-    // const term = useLocation<{ term: string }>().state.term
     const history = useHistory()
     const [total, setTotal] = useState(0)
-    useAsyncEffect(async () => setTotal(await getGamesCount(term)), [term])
-    useAsyncEffect(() => setGamesFx({ page, term }), [page, term])
+    useAsyncEffect(async () => setTotal((await getGamesCount(term)) ?? 1), [term])
+    useAsyncEffect(() => fxSetGames({ page, term }), [page, term])
     return isFetch ? (
         <Loader />
     ) : error ? (
@@ -27,21 +26,17 @@ export const Main = () => {
         </>
     ) : (
         <>
-            {/* <video controls autoPlay loop muted width="600" height="350">
-                <source src="https://youtu.be/VRjkP63ajHk?t=7" />
-            </video> */}
             <Search />
             <p />
             <Games>{games}</Games>
             <p />
             <Pagination
                 onChange={(p) =>
-                    // history.push(`/${p === 1 ? "" : p}${term && `?term=${term}`}`)
-                    history.push(p === 1 ? "" : p.toString(), term && term)
+                    history.push(`/${p === 1 ? "" : p}${term && `?term=${term}`}`)
                 }
                 totalItemsCount={total}
+                itemsCountPerPage={21}
                 activePage={page}
-                itemsCountPerPage={20}
                 activeClass="active"
                 activeLinkClass="link"
                 itemClass="page-item"

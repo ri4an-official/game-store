@@ -2,7 +2,9 @@ import { useStore } from "effector-react"
 import { FormControl, InputGroup, Button } from "react-bootstrap"
 import { useInput } from "../common/hooks/useInput"
 import {
-    $todos,
+    $all,
+    $completed,
+    $incompleted,
     addTodo,
     clear,
     completeTodo,
@@ -11,7 +13,9 @@ import {
     Todo,
 } from "./../common/models/model"
 export const Todos = () => {
-    const { all, completed, incompleted } = useStore($todos)
+    const all = useStore($all)
+    const completed = useStore($completed)
+    const incompleted = useStore($incompleted)
     const { error, ...inp } = useInput("", true)
     const select = useInput("all")
     return (

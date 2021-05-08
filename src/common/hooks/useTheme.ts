@@ -13,9 +13,7 @@ export const useTheme = (userTheme: string = "dark") => {
     }
     useEffect(() => {
         const localTheme = localStorage.getItem("theme")
-        if (localTheme) {
-            setTheme(localTheme)
-        }
+        localTheme && setTheme(localTheme)
     }, [])
     return {
         theme,
