@@ -2,23 +2,22 @@ import { Form, Formik, Field } from "formik"
 import { Button, InputGroup } from "react-bootstrap"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
-import { setGamesAsync } from "../common/redux/games-reducer"
+import { setGames } from "../common/models/games"
 import { Input } from "../common/utils/controls"
 
 export const Search = () => {
     const history = useHistory()
-    const dispatch = useDispatch()
     return (
         <Formik
-            initialValues={{ term: "" }}
-            onSubmit={({ term }) => {
-                dispatch(setGamesAsync(1, term))
-                history.push(`/?term=${term}`)
+            initialValues={{ search: "" }}
+            onSubmit={({ search }) => {
+                setGames({ page: 1, search })
+                history.push(`/?search=${search}`)
             }}
         >
             <Form>
                 <InputGroup>
-                    <Field name="term" component={Input} />
+                    <Field name="search" component={Input} />
                     <Button type="submit" variant="secondary">
                         Search
                     </Button>

@@ -1,14 +1,8 @@
-import {
-    combineReducers,
-    configureStore,
-    getDefaultMiddleware,
-} from "@reduxjs/toolkit"
+import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit"
 import { reducer as formReducer } from "redux-form"
 import basketReducer from "./basket-reducer"
-import gamesReducer from "./games-reducer"
 import loginReducer from "./login-form"
 const reducer = combineReducers({
-    gamesStore: gamesReducer,
     basket: basketReducer,
     login: loginReducer,
     form: formReducer,

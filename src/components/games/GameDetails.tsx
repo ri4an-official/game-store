@@ -1,22 +1,15 @@
 import { Game } from "../../common/models/Game"
 import { AddToBasket } from "../AddToBasket"
 import { useParams } from "react-router"
-import { useState } from "react"
 import useAsyncEffect from "use-async-effect"
-import { setFetch } from "../../common/redux/games-reducer"
-import { useDispatch } from "react-redux"
-import { getGameDetails } from "../../common/redux/api"
 import { Loader } from "../../common/loader/Loader"
+import { setGameDetails, $selectedGame } from "../../common/models/games"
+import { useStore } from "effector-react"
 
 export default () => {
-    const [selectedGame, setSelectedGame] = useState({} as Game)
-    const dispatch = useDispatch()
     const title = useParams<any>().title as string
-    useAsyncEffect(async () => {
-        dispatch(setFetch(true))
-        setSelectedGame(await getGameDetails(title))
-        dispatch(setFetch(false))
-    }, [title])
+    const selectedGame = useStore($selectedGame)
+    useAsyncEffect(async () => setGameDetails(title), [title])
     return selectedGame.slug ? (
         <>
             <span>
