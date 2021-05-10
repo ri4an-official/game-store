@@ -5,9 +5,9 @@ const games = axios.create({
     baseURL: "https://api.rawg.io/api",
 })
 const key = "71eb9cac6b8f41869a5fb9e17c216033"
-export const getGamesCount = async (query: string = "") =>
+export const getGamesCount = async (search: string = "") =>
     await games
-        .get("/games", { params: { search: query, key } })
+        .get("/games", { params: { search, key } })
         .then((r) => r.data.count as number)
 
 export const getGames = async (page: number, search: string = "") =>
