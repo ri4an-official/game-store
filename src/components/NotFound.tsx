@@ -10,7 +10,7 @@ export const NotFound = () => (
         }}
     >
         <h1 style={{ fontSize: "105px", color: "gray" }}>404</h1>
-        <h3>Not found</h3>
+        <h3>Page Not Found</h3>
         <a style={{ fontSize: "20px" }} className="btn btn-dark center" href="/">
             Main page
         </a>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useInput = (initValue: string = "", requared = false) => {
+export const useInput = (initValue = "", requared = false) => {
     const [value, setValue] = useState(initValue)
     const [error, setError] = useState("")
     return !requared

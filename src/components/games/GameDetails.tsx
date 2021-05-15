@@ -1,15 +1,15 @@
 import { Game } from "../../common/models/Game"
 import { AddToBasket } from "../AddToBasket"
 import { useParams } from "react-router"
+import { useState } from "react"
 import useAsyncEffect from "use-async-effect"
+import { gamesApi } from "../../common/redux/api"
 import { Loader } from "../../common/loader/Loader"
-import { setGameDetails, $selectedGame } from "../../common/models/games"
-import { useStore } from "effector-react"
 
 export default () => {
+    const [selectedGame, setSelectedGame] = useState({} as Game)
     const title = useParams<any>().title as string
-    const selectedGame = useStore($selectedGame)
-    useAsyncEffect(async () => setGameDetails(title), [title])
+    useAsyncEffect(async () => setSelectedGame(await gamesApi.details(title)), [title])
     return selectedGame.slug ? (
         <>
             <span>

@@ -6,14 +6,12 @@ import { Search } from "./Search"
 import useAsyncEffect from "use-async-effect"
 import Pagination from "react-js-pagination"
 import { useHistory, useLocation, useParams } from "react-router"
-import { $error, $games, $isFetch, setGames } from "../common/models/games"
+import { $games, setGames } from "../common/models/games"
 import { useStore } from "effector-react"
 import { Error } from "./../common/error/Error"
 import { NotFound } from "./NotFound"
 export const Main = () => {
-    const games = useStore($games)
-    const isFetch = useStore($isFetch)
-    const error = useStore($error)
+    const [games, isFetch, error] = useStore($games)
     const page = Number(useParams<any>().page ?? 1)
     const search = useLocation().search.replaceAll("?search=", "")
     const history = useHistory()
