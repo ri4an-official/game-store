@@ -49,9 +49,6 @@ function toRoman(num: number) {
     return str
 }
 
-const a = { b: 1, r: 4, c: 4 }
-Object.keys(a).forEach(console.log)
-
 export const calculate = (str: string) => {
     const operation = str.split(" ")
     if (operation.length > 3 || operation.length <= 1)
@@ -103,7 +100,8 @@ export const calculate = (str: string) => {
             case "/":
                 return toRoman(Math.floor(firstNum / secondNum)).toString()
             case "%":
-                if (firstNum < secondNum) throw new Error("")
+                if (firstNum < secondNum)
+                    throw new Error("First num require most second")
                 return toRoman(Math.floor(firstNum % secondNum)).toString()
             default:
                 throw new Error("Incorrect input")
