@@ -3,8 +3,7 @@ import { Error } from "./Error"
 export class ErrorHandler extends Component {
     state = { hasError: false, error: "" }
 
-    componentDidCatch = (_: any, error: any) =>
-        this.setState({ hasError: true, error })
+    componentDidCatch = (_: any, error: any) => this.setState({ hasError: true, error })
 
     static getDerivedStateFromError = (error: any) => ({
         hasError: true,

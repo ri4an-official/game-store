@@ -1,5 +1,5 @@
 import { Game } from "./Game"
-export interface User {
+export type User = {
     name: string
     password: string
     role: "user" | "admin"
