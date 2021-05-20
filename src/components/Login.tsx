@@ -1,19 +1,35 @@
-import { Form, Formik } from "formik"
-import { useDispatch } from "react-redux"
+import { Form, Formik, Field } from "formik"
 import { User } from "../common/models/User"
-import { login } from "../common/redux/login-form"
-
+import { login } from "../common/models/login"
+import { FormControl, Button } from "react-bootstrap"
+import { useHistory } from "react-router"
 export default () => {
-    const dispatch = useDispatch()
+    const history = useHistory()
     return (
         <Formik
             initialValues={{ name: "", password: "" }}
-            onSubmit={async ({ name, password }) =>
-                dispatch(login({ name, password } as User))
-            }
-            validate={({ name, password }) => {}}
+            onSubmit={async ({ name, password }) => {
+                login(new User(name, password))
+                history.push("/")
+            }}
         >
-            <Form></Form>
+            <Form>
+                <Field
+                    name="name"
+                    component={({ field }: any) => (
+                        <FormControl {...field} required placeholder="Login" />
+                    )}
+                />
+                <Field
+                    name="password"
+                    component={({ field }: any) => (
+                        <FormControl {...field} required placeholder="Password" />
+                    )}
+                />
+                <Button className="center" variant="success" type="submit">
+                    Login
+                </Button>
+            </Form>
         </Formik>
     )
 }

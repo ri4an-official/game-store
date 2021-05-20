@@ -6,7 +6,7 @@ import useAsyncEffect from "use-async-effect"
 import { gamesApi } from "../../common/redux/api"
 import { Loader } from "../../common/loader/Loader"
 
-export default () => {
+export const GameDetails = () => {
     const [selectedGame, setSelectedGame] = useState({} as Game)
     const title = useParams<any>().title as string
     useAsyncEffect(async () => setSelectedGame(await gamesApi.details(title)), [title])

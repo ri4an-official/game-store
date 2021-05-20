@@ -1,11 +1,14 @@
+import { useStore } from "effector-react"
 import { Nav, Navbar } from "react-bootstrap"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { $currentUser, $isLogin } from "../common/models/login"
 import { State } from "../common/redux/redux-reducer"
 import basket from "./../common/images/free-icon-shopping-4220891.svg"
 import profile from "./../common/images/profile.svg"
 export const Menu = () => {
-    const { auth, user } = useSelector((state: State) => state.login)
+    const user = useStore($currentUser)
+    const auth = useStore($isLogin)
     const { length } = useSelector((state: State) => state.basket.games)
     return (
         <>

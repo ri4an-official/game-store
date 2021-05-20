@@ -19,6 +19,7 @@
     "bootstrap": "^4.6.0",
     "effector": "^21.8.11",
     "effector-react": "^21.3.2",
+    "firebase-tools": "^9.11.0",
     "formik": "^2.2.6",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",

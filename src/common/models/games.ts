@@ -14,4 +14,10 @@ export const $games = combine([
     restore(fxGetGames.failData, null).reset(fxGetGames.done),
 ])
 
+// guard({
+//     clock: setGames,
+//     source: $games,
+//     filter: (s, p) => !s[0].length || p.page !== 1,
+//     target: fxGetGames,
+// })
 forward({ from: setGames, to: fxGetGames })
