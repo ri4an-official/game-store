@@ -11,5 +11,5 @@ export type Game = {
 }
 export const withPrice = (g: Game) => ({
     ...g,
-    price: Number((g.rating * 4.3).toFixed(2)),
+    price: Number((g.rating * 1.5).toFixed(2)),
 })

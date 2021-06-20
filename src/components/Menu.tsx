@@ -1,15 +1,14 @@
 import { useStore } from "effector-react"
 import { Nav, Navbar } from "react-bootstrap"
-import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { $cart } from "../common/models/cart"
 import { $currentUser, $isLogin } from "../common/models/login"
-import { State } from "../common/redux/redux-reducer"
 import basket from "./../common/images/free-icon-shopping-4220891.svg"
 import profile from "./../common/images/profile.svg"
 export const Menu = () => {
     const user = useStore($currentUser)
     const auth = useStore($isLogin)
-    const { length } = useSelector((state: State) => state.basket.games)
+    const count = useStore($cart).length
     return (
         <>
             <Navbar expand="lg" className="container navbar">
@@ -24,7 +23,7 @@ export const Menu = () => {
                         <Nav.Item>
                             <Link className="nav-link" to="/cart">
                                 <img src={basket} /> <span>Cart </span>
-                                <span className="count">{length || null}</span>
+                                <span className="count">{count || null}</span>
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -35,7 +34,7 @@ export const Menu = () => {
                             ) : (
                                 <Link to="/profile" className="nav-link">
                                     <img src={profile} />
-                                    <b>{user.name}</b>
+                                    <b>{user.login}</b>
                                 </Link>
                             )}
                         </Nav.Item>

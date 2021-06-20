@@ -1,5 +1,5 @@
-import { gamesApi } from "../redux/api"
-import { combine, createEffect, createEvent, forward, restore } from "effector"
+import { gamesApi } from "./api"
+import { combine, createEffect, createEvent, Effect, forward, restore } from "effector"
 import { Game } from "./Game"
 
 export const fxGetGames = createEffect(
@@ -13,11 +13,4 @@ export const $games = combine([
     fxGetGames.pending,
     restore(fxGetGames.failData, null).reset(fxGetGames.done),
 ])
-
-// guard({
-//     clock: setGames,
-//     source: $games,
-//     filter: (s, p) => !s[0].length || p.page !== 1,
-//     target: fxGetGames,
-// })
 forward({ from: setGames, to: fxGetGames })

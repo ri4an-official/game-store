@@ -1,13 +1,12 @@
-import { useSelector } from "react-redux"
-import { State } from "../common/redux/redux-reducer"
 import { Title } from "./Title"
 import { Games } from "./games/Games"
 import { Button } from "react-bootstrap"
 import { withRedirect } from "../common/hocs/withRedirect"
-import { logout } from "../common/models/login"
+import { $currentUser, logout } from "../common/models/login"
+import { useStore } from "effector-react"
 
 export default withRedirect(() => {
-    const myGames = useSelector((state: State) => state.login.user.games)
+    const myGames = useStore($currentUser).games
     return (
         <>
             <Button onClick={() => logout()} className="right" variant="danger">

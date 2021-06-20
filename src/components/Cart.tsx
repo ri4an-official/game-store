@@ -1,23 +1,21 @@
-import { Alert, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
+import { Button } from "react-bootstrap"
 import { withRedirect } from "../common/hocs/withRedirect"
-import { remove, buyGames } from "../common/redux/basket-reducer"
-import { State } from "../common/redux/redux-reducer"
 import { Title } from "./Title"
 import bin from "./../common/images/free-icon-dustbin-4205487.svg"
 import { Money } from "./Money"
+import { useStore } from "effector-react"
+import { $currentUser, buyGames } from "../common/models/login"
+import { $cart, deleteGame } from "../common/models/cart"
 
 export default withRedirect(() => {
-    const games = useSelector((state: State) => state.basket.games)
-    const { user, error } = useSelector((state: State) => state.login)
-    const dispatch = useDispatch()
+    const games = useStore($cart)
+    const user = useStore($currentUser)
     return (
         <div className="container basket">
             <Title noblock>Cart</Title>
             <h5 className="noblock right green">
                 <Money>{user.sum}</Money>
             </h5>
-            {error && <Alert variant="red">{error}</Alert>}
             {!games.length ? (
                 <h4 className="center red">Cart's empty</h4>
             ) : (
@@ -28,7 +26,7 @@ export default withRedirect(() => {
                                 <h3 className="noblock">{g.name}</h3>
                                 <img
                                     className="btn right noblock btn-danger"
-                                    onClick={() => dispatch(remove(g.id))}
+                                    onClick={() => deleteGame(g.id)}
                                     src={bin}
                                 />
                                 <Money className="right">{g.price}</Money>
@@ -39,7 +37,7 @@ export default withRedirect(() => {
                     <Button
                         className="right"
                         variant="success"
-                        onClick={() => dispatch(buyGames(games))}
+                        onClick={() => buyGames(games)}
                     >
                         + Buy
                     </Button>

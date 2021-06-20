@@ -3,7 +3,7 @@ import { AddToBasket } from "../AddToBasket"
 import { useParams } from "react-router"
 import { useState } from "react"
 import useAsyncEffect from "use-async-effect"
-import { gamesApi } from "../../common/redux/api"
+import { gamesApi } from "../../common/models/api"
 import { Loader } from "../../common/loader/Loader"
 
 export const GameDetails = () => {

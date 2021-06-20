@@ -1,3 +1,1 @@
-GET jsonplaceholder.typicode.com/users
-###
-GET jsonplaceholder.typicode.com/todos
+GET https://social-network.samuraijs.com/api/1.0/auth/login

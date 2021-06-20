@@ -1,18 +1,31 @@
-import { createEffect, createEvent, sample, restore } from "effector"
+import { createEffect, createEvent, sample, restore, createStore } from "effector"
+import { users } from "./api"
+import { Game } from "./Game"
 import { User } from "./User"
 
-export const login = createEvent<User>()
-export const logout = createEvent()
-export const fxGetUsers = createEffect(
-    async () => await fetch("").then((r) => r.json())
+export const fxLogin = createEffect(
+    async (user: { email: string; password: string }) => {
+        await users.login(user.email, user.password)
+        setTimeout(async () => (user = await users.me()), 3000)
+        return user as User
+    }
 )
+export const logout = createEvent()
+export const buyGames = createEvent<Game[]>()
+export const fxGetUsers = createEffect(async () => await users.get())
 
-export const $users = restore<User[]>(fxGetUsers, [new User("Vadim", "111")])
-export const $currentUser = restore(login, {} as User).reset(logout)
+export const $users = restore<User[]>(fxGetUsers, [])
+export const $currentUser = restore(fxLogin, {} as User) // { login: "Vadim"}
+    .on(buyGames, (user, games) => ({
+        ...user,
+        games,
+        sum: user.sum - games.map((g) => g.price).reduce((pv, cv) => pv + cv),
+    }))
+    .reset(logout)
+$currentUser.watch(console.log)
 export const $isLogin = sample({
-    source: $currentUser,
-    fn: (st) =>
-        $users
-            .map((s) => s.some((u) => u.name === st.name && u.password === st.password))
-            .getState(),
-})
+    source: [$currentUser, $users],
+    fn: ([user, users]) =>
+        users.some((u) => u.login === user.login && u.email === user.email),
+}).reset(logout)
+// export const $isLogin = createStore(false)

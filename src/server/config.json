@@ -1,0 +1,8 @@
+{
+    "port": 5000,
+    "uri": "mongodb+srv://ri4an:admin@cluster0.0yxax.mongodb.net/store?retryWrites=true",
+    "options": {
+        "useNewUrlParser": true,
+        "useUnifiedTopology": true
+    }
+}

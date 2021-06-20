@@ -1,5 +1,6 @@
-import { Game, withPrice } from "./../models/Game"
+import { Game, withPrice } from "./Game"
 import axios from "axios"
+import { User } from "./User"
 
 const $api = axios.create({
     baseURL: "https://api.rawg.io/api",
@@ -20,4 +21,18 @@ export const gamesApi = {
         await $api
             .get(`/games/${name}`, { params: { key } })
             .then((r) => withPrice(r.data as Game)),
+}
+
+const $usersdb = axios.create({
+    baseURL: "https://social-network.samuraijs.com/api/1.0",
+    responseType: "json",
+    headers: {
+        "API-KEY": "8b6db175-dcb8-4dbb-9055-5aa4c87d64d3",
+    },
+})
+export const users = {
+    me: async () => (await $usersdb.get("/auth/me")).data.data as User,
+    get: async () => (await $usersdb.get("/users")).data.items as User[],
+    login: async (email: string, password: string) =>
+        await $usersdb.post("/auth/login", { email, password }),
 }
