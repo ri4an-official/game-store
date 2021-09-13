@@ -29,3 +29,7 @@
 ## Footer
 
 ![Footer](src/common/images/screenshots/footer.png)
+
+## Authors
+
+-   [@ri4an-official](https://github.com/ri4an-official)
