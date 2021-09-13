@@ -24,7 +24,7 @@
 ## Profile
 
 ![Profile](src/common/images/screenshots/profile-empty.png)
-![Profile](src/common/images/screenshots/profile.png)
+![Profile](src/common/images/screenshots/profile-with-game.png)
 
 ## Footer
 
