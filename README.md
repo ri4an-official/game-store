@@ -2,7 +2,7 @@
 
 ## Main Page
 
-![Main Page](./common/images/screenshots/main-page.png)
+![Main Page](src/common/images/screenshots/main-page.png)
 
 #### Selected game
 
