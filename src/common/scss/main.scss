@@ -13,21 +13,21 @@ html {
     }
     .app {
         margin: auto;
-
         .app-content {
             margin: 60px;
             min-width: 90%;
             min-height: 300px;
             .games {
+                display: flex;
+                flex-wrap: wrap;
+                width: 130%;
                 .game {
                     margin: 12px;
                     padding: 7px;
-                    width: 31%;
+                    width: calc(25% - 5 * 2px);
                     height: 250px;
-                    display: inline-block;
                     border-radius: 10%;
                     color: black;
-
                     $block-height: 70%;
                     .block-left {
                         width: 63%;
@@ -53,7 +53,6 @@ html {
                                 }
                             }
                             .active {
-                                // цвет звёздочки
                                 color: #ffd000;
                             }
                         }
@@ -102,6 +101,6 @@ html {
                 }
             }
         }
-        @import "./default.scss";
+        @import './default.scss';
     }
 }
