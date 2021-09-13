@@ -2,30 +2,30 @@
 
 ## Main Page
 
-['Main Page](./common/images/screenshots/main-page.png)
+['Main Page'](./common/images/screenshots/main-page.png)
 
 #### Selected game
 
-['Main Page](./common/images/screenshots/about-game.png)
+['Selected game'](./common/images/screenshots/about-game.png)
 
 #### Pagination
 
-['Main Page](./common/images/screenshots/pagination.png)
+['Pagination'](./common/images/screenshots/pagination.png)
 
 #### Search
 
-['Main Page](./common/images/screenshots/search.png)
+['Search'](./common/images/screenshots/search.png)
 
 ## Cart
 
-['Main Page](./common/images/screenshots/cart-empty.png)
-['Main Page](./common/images/screenshots/cart.png)
+['Cart'](./common/images/screenshots/cart-empty.png)
+['Cart'](./common/images/screenshots/cart.png)
 
 ## Profile
 
-['Main Page](./common/images/screenshots/profile-empty.png)
-['Main Page](./common/images/screenshots/profile.png)
+['Profile'](./common/images/screenshots/profile-empty.png)
+['Profile'](./common/images/screenshots/profile.png)
 
 ## Footer
 
-['Main Page](./common/images/screenshots/footer.png)
+['Footer'](./common/images/screenshots/footer.png)
