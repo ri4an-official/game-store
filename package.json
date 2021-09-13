@@ -29,7 +29,7 @@
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.11",
     "node-sass": "^5.0.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.10",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
     "rc-pagination": "^3.1.3",
@@ -50,10 +50,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "server": "nodemon server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
+    "dev": "nodemon src/server/index.js",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
