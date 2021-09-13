@@ -1,15 +1,15 @@
-import { Title } from "./Title"
-import { Games } from "./games/Games"
-import { Button } from "react-bootstrap"
-import { withRedirect } from "../common/hocs/withRedirect"
-import { $currentUser, logout } from "../common/models/login"
-import { useStore } from "effector-react"
+import { Title } from './Title'
+import { Games } from './games/Games'
+import { Button } from 'react-bootstrap'
+import { withRedirect } from '../common/hocs/withRedirect'
+import { $currentUser, logout } from '../common/models/login'
+import { useStore } from 'effector-react'
 
 export default withRedirect(() => {
     const myGames = useStore($currentUser).games
     return (
         <>
-            <Button onClick={() => logout()} className="right" variant="danger">
+            <Button onClick={() => logout()} className='right' variant='danger'>
                 Log out
             </Button>
             <Title>Profile</Title>
@@ -17,7 +17,7 @@ export default withRedirect(() => {
             {myGames.length ? (
                 <Games>{myGames}</Games>
             ) : (
-                <h4 className="red center">You don't have bought games</h4>
+                <h4 className='red center'>You don't have bought games</h4>
             )}
         </>
     )

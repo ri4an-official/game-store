@@ -1,10 +1,10 @@
-import { Game } from "../../common/models/Game"
-import { AddToBasket } from "../AddToBasket"
-import { useParams } from "react-router"
-import { useState } from "react"
-import useAsyncEffect from "use-async-effect"
-import { gamesApi } from "../../common/models/api"
-import { Loader } from "../../common/loader/Loader"
+import { Game } from '../../common/models/types/Game'
+import { AddToBasket } from '../AddToBasket'
+import { useParams } from 'react-router'
+import { useState } from 'react'
+import useAsyncEffect from 'use-async-effect'
+import { gamesApi } from '../../common/models/api'
+import { Loader } from '../../common/loader/Loader'
 
 export const GameDetails = () => {
     const [selectedGame, setSelectedGame] = useState({} as Game)
@@ -17,14 +17,14 @@ export const GameDetails = () => {
             </span>
             <p>
                 <img
-                    className="center img"
-                    height="150"
+                    className='center img'
+                    height='150'
                     src={selectedGame.background_image}
                 />
-                <h1 className="center">{selectedGame.name}</h1>
+                <h1 className='center'>{selectedGame.name}</h1>
                 <p />
                 <strong
-                    style={{ fontFamily: "Arial" }}
+                    style={{ fontFamily: 'Arial' }}
                     dangerouslySetInnerHTML={{
                         __html: selectedGame.description,
                     }}
