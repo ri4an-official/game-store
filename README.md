@@ -6,26 +6,26 @@
 
 #### Selected game
 
-![Selected game](./common/images/screenshots/about-game.png)
+![Selected game](src/common/images/screenshots/about-game.png)
 
 #### Pagination
 
-![Pagination](./common/images/screenshots/pagination.png)
+![Pagination](src/common/images/screenshots/pagination.png)
 
 #### Search
 
-![Search](./common/images/screenshots/search.png)
+![Search](src/common/images/screenshots/search.png)
 
 ## Cart
 
-![Cart](./common/images/screenshots/cart-empty.png)
-![Cart](./common/images/screenshots/cart.png)
+![Cart](src/common/images/screenshots/cart-empty.png)
+![Cart](src/common/images/screenshots/cart.png)
 
 ## Profile
 
-![Profile](./common/images/screenshots/profile-empty.png)
-![Profile](./common/images/screenshots/profile.png)
+![Profile](src/common/images/screenshots/profile-empty.png)
+![Profile](src/common/images/screenshots/profile.png)
 
 ## Footer
 
-![Footer](./common/images/screenshots/footer.png)
+![Footer](src/common/images/screenshots/footer.png)
