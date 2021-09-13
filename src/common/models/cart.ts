@@ -1,6 +1,6 @@
-import { createEvent, createStore } from "effector"
-import { Game } from "./Game"
-import { buyGames } from "./login"
+import { createEvent, createStore } from 'effector'
+import { Game } from './types/Game'
+import { buyGames } from './login'
 
 export const addGame = createEvent<Game>()
 export const deleteGame = createEvent<number>()

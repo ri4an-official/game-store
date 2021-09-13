@@ -1,6 +1,6 @@
-import { gamesApi } from "./api"
-import { combine, createEffect, createEvent, Effect, forward, restore } from "effector"
-import { Game } from "./Game"
+import { gamesApi } from './api'
+import { combine, createEffect, createEvent, Effect, forward, restore } from 'effector'
+import { Game } from './types/Game'
 
 export const fxGetGames = createEffect(
     async (params: { page?: number; search?: string } = {}) =>
